@@ -1,0 +1,42 @@
+<div class="first-section-wrapper">
+
+  <!-- Logo container -->
+  <div class="logo-container">
+    <div><h1>Hellobooks</h1></div>
+  </div>
+
+  <!-- Container for menu, introduction and social icons -->
+  <div class="menu-intro-socials-container">
+    <div class="custom-hamburger">
+      <svg width="100" height="60" class="menu-button">
+        <rect x="0" y="25" width="40" height="5" style="fill:rgb(249, 34, 104)" />
+        <rect x="0" y="38" width="40" height="5" style="fill:rgb(249, 34, 104)" />
+        <rect x="0" y="51" width="40" height="5" style="fill:rgb(249, 34, 104)" />
+      </svg>
+
+      <div class="menu-display">
+          <ul>
+            <a [routerLink]="['/about']"><li>About</li></a>
+            <a [routerLink]="['/login']"><li>Login</li></a>
+            <a [routerLink]="['/signup']"><li>Signup</li></a>
+          </ul>
+      </div>
+    </div>
+    <div class="introduction">
+      <h1>The ultimate source of truth</h1>
+      <p>This app is built with angular and svgThis app is built with angular and svgThis app is built with angular and svg</p>
+      <a [routerLink]="['/signup']">Get Started</a>
+    </div>
+    <div>
+        <svg width="100" height="100">
+            <circle cx="100" cy="100" r="50" x="0" y="12" fill="green" stroke="red" />
+          </svg>
+    </div>
+  </div>
+
+  <!-- Arrow down container -->
+  <div class="direction-down">
+    ARROW DOWN
+  </div>
+
+</div>

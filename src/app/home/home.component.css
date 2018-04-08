@@ -1,0 +1,137 @@
+
+.first-section-wrapper {
+  height: 100vh;
+  background: url('../../assets/hellobooks-v2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.logo-container,
+.menu-intro-socials-container,
+.direction-down {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 50px 10px 50px;
+  color: white;
+  animation: animate-intro 4s ease-in-out;
+ }
+
+ .logo-container {
+   height: 50px;
+   background: rgb(249, 34, 104);
+   line-height:  50px;
+ }
+
+ .menu-intro-socials-container {
+  margin-top: 10%;
+ }
+
+ .menu-intro-socials-container .custom-hamburger {
+  position: relative;
+ }
+
+ .menu-intro-socials-container
+ .menu-button {
+   cursor: pointer;
+ }
+
+ .menu-intro-socials-container .custom-hamburger .menu-display {
+  visibility: hidden; 
+  height: auto;
+  padding: 10px 0 10px 0;
+  line-height: 50px;
+  background: white;
+  width: 150px;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  opacity: 0;
+  border-top-right-radius: 20%;
+  border-bottom-right-radius: 20%;
+  color: rgb(249, 34, 104);
+  transition: opacity 0.5s, transform 2s;
+ }
+
+ .menu-intro-socials-container
+ .custom-hamburger:hover .menu-display {
+   visibility: visible;
+   opacity: 1;
+   transform: rotate(360deg);
+ }
+
+ .menu-intro-socials-container 
+ .custom-hamburger 
+ .menu-display ul {
+  padding: 0;
+  text-align: center;
+}
+
+.menu-intro-socials-container 
+.custom-hamburger 
+.menu-display li {
+  list-style-type: none;
+  height: 50px;
+}
+ 
+.menu-intro-socials-container
+ .custom-hamburger
+ .menu-display a {
+  color: rgb(249, 34, 104);
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
+
+ .menu-intro-socials-container
+ .custom-hamburger
+ .menu-display a:hover {
+  color: rgba(0, 0, 0, 0.5);
+ }
+
+
+.menu-intro-socials-container .introduction {
+   text-align: center;
+   /* height: auto; */
+}
+ .menu-intro-socials-container .introduction h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
+
+ .menu-intro-socials-container .introduction p {
+   font-size: 20px;
+   padding-top: 30px;
+}
+
+@keyframes animate-intro {
+  0%{transform: scale(1.1)}
+  50%{transform:scale(1.5)}
+  100%{transform: scale(1.0)}
+}
+
+ .menu-intro-socials-container .introduction p {
+  max-width: 70%;
+  margin: auto;
+  padding-bottom: 60px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.menu-intro-socials-container
+.introduction
+a {
+  height: 100px;
+  background: rgb(249, 34, 104);
+  color: white;
+  border-radius: 2px;
+  line-height: 50px;
+}
