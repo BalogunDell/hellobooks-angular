@@ -13,3 +13,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.pad-elements {
+  padding: 10px 50px 10px 50px;
+}

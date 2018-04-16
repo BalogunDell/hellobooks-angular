@@ -22,14 +22,12 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px 50px 10px 50px;
   color: white;
   animation: animate-intro 4s ease-in-out;
  }
 
  .logo-container {
    height: 50px;
-   background: rgb(249, 34, 104);
    line-height:  50px;
  }
 
@@ -59,7 +57,7 @@ h1 {
   opacity: 0;
   border-top-right-radius: 20%;
   border-bottom-right-radius: 20%;
-  color: rgb(249, 34, 104);
+  color: rgb(16, 153, 175);
   transition: opacity 0.5s, transform 2s;
  }
 
@@ -87,7 +85,7 @@ h1 {
 .menu-intro-socials-container
  .custom-hamburger
  .menu-display a {
-  color: rgb(249, 34, 104);
+  color: rgb(3, 59, 68);
   text-decoration: none;
   font-size: 18px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -96,14 +94,14 @@ h1 {
  .menu-intro-socials-container
  .custom-hamburger
  .menu-display a:hover {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgb(3, 59, 68);
  }
 
 
 .menu-intro-socials-container .introduction {
    text-align: center;
-   /* height: auto; */
 }
+
  .menu-intro-socials-container .introduction h1 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  }
@@ -130,8 +128,10 @@ h1 {
 .introduction
 a {
   height: 100px;
-  background: rgb(249, 34, 104);
+  background: rgb(3, 59, 68);
   color: white;
   border-radius: 2px;
   line-height: 50px;
+  padding: 15px 10px 15px 10px;
+  text-decoration: none;
 }

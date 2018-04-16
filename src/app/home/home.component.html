@@ -1,17 +1,17 @@
 <div class="first-section-wrapper">
 
   <!-- Logo container -->
-  <div class="logo-container">
+  <div class="logo-container pad-elements">
     <div><h1>Hellobooks</h1></div>
   </div>
 
   <!-- Container for menu, introduction and social icons -->
-  <div class="menu-intro-socials-container">
+  <div class="menu-intro-socials-container pad-elements">
     <div class="custom-hamburger">
       <svg width="100" height="60" class="menu-button">
-        <rect x="0" y="25" width="40" height="5" style="fill:rgb(249, 34, 104)" />
-        <rect x="0" y="38" width="40" height="5" style="fill:rgb(249, 34, 104)" />
-        <rect x="0" y="51" width="40" height="5" style="fill:rgb(249, 34, 104)" />
+        <rect x="0" y="25" width="40" height="5" style="fill:rgb(3, 59, 68)" />
+        <rect x="0" y="38" width="40" height="5" style="fill:rgb(3, 59, 68)" />
+        <rect x="0" y="51" width="40" height="5" style="fill:rgb(3, 59, 68)" />
       </svg>
 
       <div class="menu-display">
@@ -29,14 +29,22 @@
     </div>
     <div>
         <svg width="100" height="100">
-            <circle cx="100" cy="100" r="50" x="0" y="12" fill="green" stroke="red" />
+            <circle cx="50" cy="50" r="50" fill="rgb(3, 59, 68)"/>
+            <text x="50%" y="50%" text-anchor="middle" stroke="white">Connect</text>
           </svg>
     </div>
   </div>
 
   <!-- Arrow down container -->
-  <div class="direction-down">
+  <div class="direction-down pad-elements">
     ARROW DOWN
   </div>
 
+</div>
+
+<div class="pad-elements">
+  <app-trending-books></app-trending-books>
+</div>
+<div>
+  <app-footer></app-footer>
 </div>

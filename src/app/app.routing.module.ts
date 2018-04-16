@@ -5,6 +5,8 @@ import {  FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TrendingBooksComponent } from './trending-books/trending-books.component';
+import { FooterComponent } from './footer/footer.component';
 const routes: Routes = [
   {
       path: '',
@@ -24,7 +26,10 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     LoginComponent,
-    PageNotFoundComponent],
+    PageNotFoundComponent,
+    TrendingBooksComponent,
+    FooterComponent,
+  ],
 
   imports: [
     FormsModule,
