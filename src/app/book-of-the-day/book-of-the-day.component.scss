@@ -1,0 +1,45 @@
+.book-of-the-day {
+  padding: 3%;;
+    
+    h1 {
+        color: white;
+    }
+
+    .book-of-the-day-container {
+      color: white;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 10%;
+      width: calc(100% - 20%);
+
+      div.book-of-the-day-text {
+        flex: 1 1 auto;
+
+        p {
+          font-size: 20px;
+        }
+      }
+
+    }
+
+    @media screen and (max-width: 461px) {
+      .book-of-the-day-container {
+        color: white;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        width: 100%;
+  
+        div.book-of-the-day-text {
+          flex: 1 1 auto;
+  
+          p {
+            font-size: 20px;
+          }
+        }
+
+      }
+      
+    }
+}

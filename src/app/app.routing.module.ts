@@ -6,6 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TrendingBooksComponent } from './trending-books/trending-books.component';
+import { BookOfTheDayComponent } from './book-of-the-day/book-of-the-day.component';
 import { FooterComponent } from './footer/footer.component';
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
     LoginComponent,
     PageNotFoundComponent,
     TrendingBooksComponent,
+    BookOfTheDayComponent,
     FooterComponent,
   ],
 
