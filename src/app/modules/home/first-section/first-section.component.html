@@ -1,0 +1,28 @@
+<div class="background-wrapper">
+  <div class="menu-logo-container pad-elements">
+    <div class="logo">
+      <img src="/../../../../assets//hellobooks-v2-logo.png" alt="Hellobooks logo">
+      <h1>Hellobooks</h1>
+    </div>
+
+    <div class="menu-links">
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/books">Books</a></li>
+        <li><a routerLink="/about">About</a></li>
+        <li (click)="showLoginModal()"><a>Login</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="intro-heading">
+    <h1>Reading keeps you Informed</h1>
+    <p>The only way to stay informed is to study. Reading has been proven to the only way
+      leaders are crafted. Study to show yourself approved.
+    </p>
+    <button (click) = "showRegisterModal()" class="main">Create an Account</button>
+  </div>
+</div>
+<app-trending-books></app-trending-books>
+<app-book-of-the-day></app-book-of-the-day>
+<app-footer></app-footer>
