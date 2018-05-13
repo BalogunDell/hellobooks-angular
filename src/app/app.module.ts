@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { BooksService } from './services/books.services.service';
+import { SharedModule } from './modules/shared/shared.module';
+
+
+import { BooksService } from './services/books.service';
+import { ModalService } from './services/modal.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -14,8 +18,13 @@ import { BooksService } from './services/books.services.service';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
+    SharedModule,
   ],
-  providers: [BooksService],
+  providers: [
+    BooksService,
+    ModalService,
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 

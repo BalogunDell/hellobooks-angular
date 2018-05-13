@@ -27,12 +27,12 @@ button.main {
 }
 
 .background-wrapper {
-  height: 100vh;
   background: url('./assets/homebg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .second-layer-bg {
@@ -64,6 +64,38 @@ button.main {
       background: yellow;
       float: left;
   }
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    max-width: 50%;
+    word-wrap: break-word;
+    font-size: 15px;
+    
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  button:hover {
+    text-decoration: underline;
+  }
+}
+
+.horizontal-rule {
+  width: 20%;
 }
 
 .header-and-colored-box {

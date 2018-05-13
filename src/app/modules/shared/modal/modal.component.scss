@@ -1,0 +1,38 @@
+.modal-overlay {
+    width: 100%;
+    background: rgba($color: #000000, $alpha: 0.7);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    animation: animate-modal-overlay 1s;
+
+  .modal-close-btn {
+    position: fixed;
+    background-color: rgba($color: #2f979b, $alpha: 0.5);
+    color: white;
+    line-height: 3%;
+    padding: 2% 2%;
+    bottom: 3%;
+    right: 3%;
+    border-radius: 10%;
+    cursor: pointer;
+
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    background-color: white;
+    width: 300px;
+    border-radius: 5%;
+    padding: 3%;
+  }
+}
+
+@keyframes animate-modal-overlay {
+ 0% { opacity:0; backgroud: black }
+ 100% { opacity:1; backgroud: rgba($color: #000000, $alpha: 0.7) }
+}

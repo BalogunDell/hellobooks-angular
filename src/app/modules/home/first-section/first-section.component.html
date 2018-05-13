@@ -1,15 +1,16 @@
 <div class="background-wrapper">
   <div class="menu-logo-container pad-elements">
-    <div>
+    <div class="logo">
+      <img src="/../../../../assets//hellobooks-v2-logo.png" alt="Hellobooks logo">
       <h1>Hellobooks</h1>
     </div>
 
     <div class="menu-links">
       <ul>
-        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/books">Books</a></li>
         <li><a routerLink="/about">About</a></li>
-        <li><a>Login</a></li>
+        <li (click)="showLoginModal()"><a>Login</a></li>
       </ul>
     </div>
   </div>
@@ -19,7 +20,7 @@
     <p>The only way to stay informed is to study. Reading has been proven to the only way
       leaders are crafted. Study to show yourself approved.
     </p>
-    <button class="main">Create an Account</button>
+    <button (click) = "showRegisterModal()" class="main">Create an Account</button>
   </div>
 </div>
 <app-trending-books></app-trending-books>

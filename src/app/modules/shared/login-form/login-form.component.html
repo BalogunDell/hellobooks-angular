@@ -1,0 +1,49 @@
+<div>
+  <div class="login-image">
+    <img src="../../../../assets/hellobooks-v2-logo.png" alt="">
+  </div>
+  <hr class="horizontal-rule"/>
+
+  <div class="modal-header">
+    <h1>Signin</h1>
+    <p>Not registered? <button (click)="signUp()">Signup</button></p>
+  </div>
+
+
+  <div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Uusername -->
+      <label> Username</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="username"
+        minlength="4"
+        required
+      >
+
+      <!-- Password -->
+
+      <label> Password</label>
+      <input 
+        type="password"
+        class="form-control"
+        formControlName="password"
+        minlength="4"
+        required
+      >
+
+      <!--  Error messages -->
+
+      <h5 *ngIf="errorMessage">{{errorMessage}}</h5>
+
+      <!-- Login button -->
+
+      <button type="submit" [disabled]="loginForm.invalid || disableBtn">Signin</button>
+      <h5 class="google">
+        <span>OR</span>
+      </h5>
+      <button class="google-signin">Signin with Google</button>
+    </form>
+  </div>
+</div>

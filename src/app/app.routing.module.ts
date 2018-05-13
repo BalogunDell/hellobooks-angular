@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import {  FormsModule } from '@angular/forms';
-import { SharedModule } from './shared/shared.module';
-import { LoginComponent } from './login/login/login.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { TrendingBooksComponent } from './trending-books/trending-books.component';
-import { BookOfTheDayComponent } from './book-of-the-day/book-of-the-day.component';
-import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './modules/home/first-section/first-section.component';
+import { SharedModule } from './modules/shared/shared.module';
+import { PageNotFoundComponent } from './modules/shared/page-not-found/page-not-found.component';
+import { TrendingBooksComponent } from './modules/home/trending-books/trending-books.component';
+import { BookOfTheDayComponent } from './modules/home/book-of-the-day/book-of-the-day.component';
+import { FooterComponent } from './modules/shared/footer/footer.component';
+import { CommonModule } from '@angular/common';
+import { UserPageModule } from './modules/user-page/user-page.module';
+
 const routes: Routes = [
   {
       path: '',
       component: HomeComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-},
+    path: 'dashboard',
+    loadChildren: './modules/user-page/user-page.module#UserPageModule'
+  },
 {
   path: '**',
   component: PageNotFoundComponent
@@ -26,7 +27,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    LoginComponent,
     PageNotFoundComponent,
     TrendingBooksComponent,
     BookOfTheDayComponent,
@@ -34,8 +34,8 @@ const routes: Routes = [
   ],
 
   imports: [
-    FormsModule,
     SharedModule,
+    CommonModule,
     RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
