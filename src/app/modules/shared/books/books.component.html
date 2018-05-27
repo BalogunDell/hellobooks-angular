@@ -1,0 +1,18 @@
+<div class="books-holder">
+  <div
+    *ngFor="let book of books"
+    (click)="showBookDetails(book.id)"
+    class="single-book-container">
+    <h4>{{ book.title }}</h4>
+    <div [class.description-overlay]="showBookOverlay">
+      <div *ngIf="showBookOverlay">
+        <p>Author: {{ book.author }}</p>
+        <p>Year: {{ book.year }}</p>
+        <p>No of Pages: {{ book.pages }}</p>
+        <p>Quantity available: {{ book.quantity }}</p>
+      </div>
+      <img src="{{ book.imageUrl }}" alt="">
+    </div>
+    <button>{{ buttonText }}</button>
+  </div>
+</div>

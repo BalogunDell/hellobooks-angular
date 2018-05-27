@@ -1,0 +1,46 @@
+<div *ngIf="isLoadingUserData">Loading</div>
+<div *ngIf="userInfo" class="content-container">
+  <div class="user-image">
+    <img src="../../../../assets/my image.jpeg" alt="">
+  </div>
+  <div class="user-details">
+   <div>
+    <h3>Profile Details</h3>
+   </div>
+    <table>
+      <tr>
+        <td>Name: </td>
+        <td>{{ userInfo.firstName }} {{  userInfo.lastName }}</td>
+      </tr>
+
+      <tr>
+        <td>Username: </td>
+        <td>{{ userInfo.username }}</td>
+      </tr>
+
+      <tr>
+        <td>Email: </td>
+        <td>{{ userInfo.email }}</td>
+      </tr>
+
+      <tr>
+        <td>Password: </td>
+        <td>*****
+          <span>edit</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Date Joined: </td>
+        <td>{{userInfo.createdAt}}</td>
+      </tr>
+
+      <tr>
+        <td>Membership level: </td>
+        <td>{{ userInfo.membership }}</td>
+      </tr>
+    </table>
+
+    <button class="custom-button">Edit profile</button>
+  </div>
+</div>

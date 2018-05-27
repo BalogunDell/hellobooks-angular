@@ -4,19 +4,10 @@
     <div><h1>Trending Books</h1></div>
   </div>
 </div>
-
-<div class="books-holder">
-  <div *ngFor="let book of trendingBooks" class="single-book-container">
-    <h4>{{book.title}}</h4>
-    <div class="description-overlay">
-      <div>
-        <p>Author: book.author</p>
-        <p>Category: book.category.category</p>
-        <p>No of Pages: book.pages</p>
-        <p>Quantity available: book.quantity</p>
-      </div>
-      <img src="{{book.imageUrl}}" alt="">
-    </div>
-    <button>Borrow book</button>
-  </div>
-</div>
+<app-books 
+  *ngIf="!loading"
+  [books]="trendingBooks"
+  [buttonText]="Borrow"
+  [showBookOverlay]="true"
+  >
+</app-books>
