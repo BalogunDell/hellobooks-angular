@@ -13,28 +13,26 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-@Input() isComponentRegisterType: boolean;
-
+userInfo: object;
 componentType = ComponentType;
-registerOrEditProfileForm: FormGroup;
+registerForm: FormGroup;
 errorMessage: string;
 disableBtn: boolean;
 
   constructor(
     private modalService: ModalService,
-    private userSercvice: UserService,
+    private userService: UserService,
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.isComponentRegisterType = this.componentType.REGISTER === 2;
     this.createForm();
   }
 
 createForm() {
-  this.registerOrEditProfileForm = this.formBuilder.group({
+  this.registerForm = this.formBuilder.group({
     firstName: ['',  [Validators.required, Validators.pattern(/[^0-9]/i)]],
     lastName: ['', [ Validators.required, Validators.pattern(/[^0-9]/i)]],
     username: ['', [Validators.required, Validators.pattern(/[^0-9]/i)]],
@@ -45,12 +43,12 @@ createForm() {
 }
 
  register() {
-   if (this.registerOrEditProfileForm.value.password !== this.registerOrEditProfileForm.value.confirmPassword) {
+   if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
      this.errorMessage = 'Passwords do not match!';
      return;
     }
 
-    this.userSercvice.createUser(this.registerOrEditProfileForm.value)
+    this.userService.createUser(this.registerForm.value)
     .subscribe(
       response => {
         this.authService.setUserToken(response.responseData.token);

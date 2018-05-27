@@ -1,11 +1,10 @@
 <div>
   <div class="modal-header">
-    <h1>{{ isComponentRegisterType ? 'Signup' : 'Edit your profile'}}</h1>
+    <h1>{{ isComponentRegisterType ? 'Signup' : 'Edit your profile' }}</h1>
   </div>
 
-  <ng-template [ngIf]="isComponentRegisterType">
-    <div class="registerOrEditProfileForm">
-      <form [formGroup]="registerOrEditProfileForm" (ngSubmit)="register()">
+    <div class="registerForm">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
 
     <div class="single-row-container">
 
@@ -19,13 +18,13 @@
           minlength="2"
           required
         >
-        <span *ngIf="(registerOrEditProfileForm.controls.firstName.touched
+        <span *ngIf="(registerForm.controls.firstName.touched
         &&
-        registerOrEditProfileForm.controls.firstName.errors
+        registerForm.controls.firstName.errors
         &&
-        !registerOrEditProfileForm.controls.firstName.pristine)
+        !registerForm.controls.firstName.pristine)
           &&
-          registerOrEditProfileForm.controls.firstName.errors.pattern"> Firstname is invalid
+          registerForm.controls.firstName.errors.pattern"> Firstname is invalid
         </span>
       </div>
 
@@ -39,13 +38,13 @@
           minlength="2"
           required
         >
-        <span *ngIf="(registerOrEditProfileForm.controls.lastName.touched
+        <span *ngIf="(registerForm.controls.lastName.touched
         &&
-        registerOrEditProfileForm.controls.lastName.errors
+        registerForm.controls.lastName.errors
         &&
-        !registerOrEditProfileForm.controls.lastName.pristine)
+        !registerForm.controls.lastName.pristine)
           &&
-          registerOrEditProfileForm.controls.lastName.errors.pattern"> Lastname is invalid
+          registerForm.controls.lastName.errors.pattern"> Lastname is invalid
         </span>
       </div>
     </div>
@@ -61,13 +60,13 @@
           minlength="4"
           required
         >
-        <span *ngIf="(registerOrEditProfileForm.controls.username.touched
+        <span *ngIf="(registerForm.controls.username.touched
         &&
-        registerOrEditProfileForm.controls.username.errors
+        registerForm.controls.username.errors
         &&
-        !registerOrEditProfileForm.controls.username.pristine)
+        !registerForm.controls.username.pristine)
           &&
-          registerOrEditProfileForm.controls.username.errors.pattern"> Username is invalid
+          registerForm.controls.username.errors.pattern"> Username is invalid
         </span>
       </div>
 
@@ -81,19 +80,18 @@
           minlength="4"
           required
         >
-        <span *ngIf="(registerOrEditProfileForm.controls.email.touched
+        <span *ngIf="(registerForm.controls.email.touched
         &&
-        registerOrEditProfileForm.controls.email.errors
+        registerForm.controls.email.errors
         &&
-        !registerOrEditProfileForm.controls.email.pristine)
+        !registerForm.controls.email.pristine)
           &&
-          registerOrEditProfileForm.controls.email.errors.email">Email is invalid
+          registerForm.controls.email.errors.email">Email is invalid
         </span>
       </div>
     </div>
 
-    <div class="single-row-container">
-        
+    <div class="single-row-container">     
       <div>
         <!-- Password -->
           <label> Password</label>
@@ -105,13 +103,13 @@
             required
             placeholder="minimum length is 6 characters"
           >
-          <span *ngIf="(registerOrEditProfileForm.controls.password.touched
+          <span *ngIf="(registerForm.controls.password.touched
         &&
-        registerOrEditProfileForm.controls.password.errors
+        registerForm.controls.password.errors
         &&
-        !registerOrEditProfileForm.controls.password.pristine)
+        !registerForm.controls.password.pristine)
           &&
-          registerOrEditProfileForm.controls.password.errors.minlength">Password too short
+          registerForm.controls.password.errors.minlength">Password too short
         </span>
       </div>
 
@@ -125,13 +123,13 @@
             minlength="6"
             required
           >
-        <span *ngIf="(registerOrEditProfileForm.controls.confirmPassword.touched
+        <span *ngIf="(registerForm.controls.confirmPassword.touched
         &&
-        registerOrEditProfileForm.controls.confirmPassword.errors
+        registerForm.controls.confirmPassword.errors
         &&
-        !registerOrEditProfileForm.controls.confirmPassword.pristine)
+        !registerForm.controls.confirmPassword.pristine)
           &&
-          registerOrEditProfileForm.controls.confirmPassword.errors.minlength">Password too short
+          registerForm.controls.confirmPassword.errors.minlength">Password too short
         </span>
        </div>
     </div>
@@ -139,85 +137,7 @@
         <p *ngIf="errorMessage" class="">{{errorMessage}}</p>
 
         <!-- Signup button -->
-        <button type="submit" [disabled]="registerOrEditProfileForm.invalid || disableBtn">Create my account</button>
+        <button type="submit" [disabled]="registerForm.invalid || disableBtn">Create my account</button>
       </form>
     </div>
-  </ng-template>
-
-  <ng-template [ngIf]="!isComponentRegisterType">
-    <div class="registerOrEditProfileForm">
-      <form [formGroup]="registerOrEditProfileForm" (ngSubmit)="editProfile()">
-
-        <!-- Firstname -->
-        <label>Firstname</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="firstName"
-          minlength="2"
-          required
-        >
-
-        <!-- Lastname -->
-        <label>Lastname</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="lastName"
-          minlength="2"
-          required
-        >
-
-        <!-- Username -->
-        <label>Username</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="username"
-          minlength="4"
-          required
-        >
-
-        <!-- Email -->
-        <label>Email</label>
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-          minlength="4"
-          required
-        >
-
-        <!-- Password -->
-        <label> Password</label>
-        <input 
-          type="password"
-          class="form-control"
-          formControlName="password"
-          minlength="6"
-          required
-        >
-
-        <!-- Password -->
-        <label> Confirm Password</label>
-        <input 
-          type="password"
-          class="form-control"
-          formControlName="confirmPassword"
-          minlength="6"
-          required
-        >
-
-        <!--  Error messages -->
-        <p *ngIf="errorMessage" class="">{{errorMessage}}</p>
-
-        <div>
-          
-        </div>
-
-        <!-- Signup button -->
-        <button type="submit" [disabled]="registerOrEditProfileForm.invalid || disableBtn">Edit Profile</button>
-      </form>
-    </div>
-  </ng-template>
 </div>

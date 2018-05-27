@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { UserRoutingModule } from './user.routing.module';
 import { UserPageComponent } from './user-page/user-page.component';
@@ -12,6 +13,7 @@ import { UserProfilePageComponent } from './user-profile-page/user-profile-page.
     UserRoutingModule,
     RouterModule,
     CommonModule,
+    ReactiveFormsModule,
     SharedModule,
   ],
   declarations: [

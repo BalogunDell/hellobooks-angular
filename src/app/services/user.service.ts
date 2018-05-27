@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { BaseService } from './base.service';
+import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class UserService extends BaseService {
 
+  editProfileUserData = new Subject<object>();
   /**
    * This method creates a new user
    *
@@ -50,5 +52,12 @@ export class UserService extends BaseService {
     .do(response => response)
     .catch(this.handleHttpErrorResponse);
 
+  }
+
+  updateProfile(newUserData) {
+    const userId = this.authService.decodeToken().id;
+    return this.http.put(`${this.baseApi}/users/${userId}`, newUserData, this.setHeaders())
+      .do(response => response)
+      .catch(this.handleHttpErrorResponse);
   }
 }
