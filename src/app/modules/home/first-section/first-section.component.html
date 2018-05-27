@@ -7,10 +7,10 @@
 
     <div class="menu-links">
       <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/books">Books</a></li>
-        <li><a routerLink="/about">About</a></li>
-        <li (click)="showLoginModal()"><a>Login</a></li>
+        <li [routerLink]="['/']">Home</li>
+        <li [routerLink]="['books']">Books</li>
+        <li [routerLink]="['about']">About</li>
+        <li (click)="showLoginModal()">Login</li>
       </ul>
     </div>
   </div>
@@ -23,6 +23,3 @@
     <button (click) = "showRegisterModal()" class="main">Create an Account</button>
   </div>
 </div>
-<app-trending-books></app-trending-books>
-<app-book-of-the-day></app-book-of-the-day>
-<app-footer></app-footer>

@@ -1,0 +1,49 @@
+.dashboard-header {
+  align-self: flex-start;
+  align-items: center;
+  background: #2f979b;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1% 0 1% 0;
+  width: 100%;
+
+  img {
+    max-height: 80px; 
+    padding: 0 0 0 1%;
+  }
+
+  input {
+    width: 70%;
+    padding: 7px 20px;
+    border-radius: 10px;
+    background: rgba($color: #ffffff, $alpha: 0.8);
+  }
+  
+  button {
+    margin: 0 1% 0 0;
+    max-width: 200px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+
+  }
+
+}
+
+  .content-display-section {
+    padding: 1% 0 1% 0;
+    background: black;
+    align-self: flex-start;
+    width: 100%;
+  }
+
+@media screen and (max-width: 640px) {
+
+.dashboard-content-area {
+  flex: 1, 1, 70%;
+}
+}

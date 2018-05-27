@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { ModalService } from '../../../services/modal.service';
 import { UserService } from '../../../services/user.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -17,6 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private modalService: ModalService,
     private userService: UserService,
+    private authService: AuthService,
+    private router: Router,
     private formBuilder: FormBuilder,
   ) { }
 
@@ -34,12 +39,15 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.disableBtn = true;
     this.userService.loginUser(this.loginForm.value)
-      .toPromise()
-      .then((response) => {
-       this.userService.setUserToken(response.responseData.token);
-      })
-      .catch((error) => {
-        this.errorMessage = error.message;
+      .subscribe(
+        response => {
+       this.authService.setUserToken(response.responseData.token);
+       this.modalService.showModal(false, null);
+       this.router.navigate(['/user/library']);
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error;
         this.disableBtn = false;
       });
   }

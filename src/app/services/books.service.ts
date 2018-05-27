@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http, Headers } from '@angular/http';
-import { environment } from '../../env';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-@Injectable()
-export class BooksService {
-  constructor( private http: Http
-  ) { }
+import { AuthService } from './auth.service';
+import { BaseService } from './base.service';
 
-  private baseApi = environment.baseApi;
+@Injectable()
+export class BooksService extends BaseService {
 
   getTrendingBooks(): Observable<any>  {
     return this.http.get(`${this.baseApi}/trendingbooks`)
-    .map((response) => response.json())
-    .catch((error) => error.json());
+    .do(response => response)
+    .catch(this.handleHttpErrorResponse);
+  }
+
+  getAllBooks(): Observable<any> {
+    return this.http.get(`${this.baseApi}/books`, this.setHeaders())
+    .do(response => response)
+    .catch(this.handleHttpErrorResponse);
   }
 }

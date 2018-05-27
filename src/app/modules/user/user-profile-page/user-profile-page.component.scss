@@ -1,0 +1,39 @@
+.content-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 70%;
+  
+  .user-image {
+    flex: 1 0 auto;
+    padding: 20px;
+    margin: 40px;
+
+    img {
+      max-width: 250px;
+      max-height: 250px;
+      border-radius: 20px;
+    }
+  }
+
+  .user-details {
+    flex: 1 0 55%;
+    padding: 10px 0 10px 0;
+    text-align: left;
+
+    table {
+      width: 40%;
+      border: none;
+
+      tr,td {
+        padding: 10px 0 10px 0;
+      }
+    }
+
+    button {
+      margin-top: 2%;
+      padding: 10px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="page-title">
+    <h3>All Books</h3>
+</div>
+
+<div *ngIf="isLoading">I am still loading</div>
+<app-books
+    *ngIf="!isLoading"
+    [books]="books"
+    (selectedBook)="getBook($event)"
+    [buttonText]="Details"
+    [showBookOverlay]="true"></app-books>

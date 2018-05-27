@@ -41,6 +41,7 @@ $font-size: 20px;
     width: 80px;
     line-height: 30px;
     flex: 1 1 auto;
+    cursor: pointer;
 
     a {
       color: white;
@@ -55,11 +56,6 @@ $font-size: 20px;
       background: rgba($color: #2f979b, $alpha: 0.5);
     }
   }
-
-  li:nth-child(4) a {
-    cursor: pointer;
-  }
-  
   
   
   //**************** Media Query **********************/

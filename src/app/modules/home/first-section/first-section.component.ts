@@ -6,15 +6,11 @@ import { ModalService } from '../../../services/modal.service';
   templateUrl: './first-section.component.html',
   styleUrls: ['./first-section.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class FirstSectionComponent {
 
   constructor(
     private modalService: ModalService,
   ) { }
-
-  ngOnInit() {
-  }
-
 
   showLoginModal() {
     this.modalService.showModal(true, 1);

@@ -10,7 +10,7 @@ button.main {
   margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
-  background-color: rgba($color: #2f979b, $alpha: 0.5);
+  background-color: rgba(23, 209, 216, 0.5);
   border: none;
   color: white;
   cursor: pointer;
@@ -97,6 +97,21 @@ button.main {
 .horizontal-rule {
   width: 20%;
 }
+
+.full-horizontal-rule {
+  width: 100%;
+}
+
+.custom-button {
+  max-width: 200px;
+  height: 30px;
+  padding: 1.5px 0 0 1.5px;
+  border: none;
+  background: #2f979b;
+  color: white;
+  cursor: pointer;
+}
+
 
 .header-and-colored-box {
   display: flex;

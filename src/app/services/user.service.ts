@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http, Headers } from '@angular/http';
-import { environment } from '../../env';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
+import { BaseService } from './base.service';
 @Injectable()
-export class UserService {
-  constructor( private http: Http
-  ) { }
-
-  private baseApi = environment.baseApi;
+export class UserService extends BaseService {
 
   loginUser(userObject: object): Observable<any>  {
     return this.http.post(`${this.baseApi}/users/signin`, userObject)
-    .map((response) => response.json())
-    .catch((error) => error.json());
+    .do(response => response)
+    .catch(this.handleHttpErrorResponse);
   }
 
-  setUserToken(token) {
-    localStorage.setItem('token', token);
+  getUser() {
+   const userId = this.authService.decodeToken().id;
+   return this.http.get(`${this.baseApi}/users/${userId}`, this.setHeaders())
+    .do(response => response)
+    .catch(this.handleHttpErrorResponse);
+
   }
 }

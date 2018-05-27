@@ -1,0 +1,12 @@
+<div class="dashboard-navigation">
+    <div class="user-image">
+      <img src="../../../../assets/my image.jpeg" alt="">
+    </div>
+    <h4>{{ userInfo.email }}</h4>
+    <button>Edit profile</button>
+    <hr class="full-horizontal-rule">
+    <ul>
+      <li *ngFor="let navLink of currentNavigationLinks"
+      [routerLink]="[navLink.urlLink]">{{ navLink.menuText }}</li>            
+    </ul>
+</div>
