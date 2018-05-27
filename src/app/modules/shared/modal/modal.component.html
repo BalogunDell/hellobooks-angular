@@ -1,7 +1,12 @@
 <div *ngIf="showModal" class="modal-overlay">
   <div class="modal-content">
-   <app-login-form *ngIf="componentType.LOGIN === type"></app-login-form>
-   <app-register-form *ngIf="componentType.REGISTER === type"></app-register-form>
+   <app-login-form 
+    *ngIf="componentType.LOGIN === type">
+  </app-login-form>
+
+   <app-register-form 
+    *ngIf="componentType.REGISTER === type"
+   ></app-register-form>
   </div>
 
   <div (click) ="displayModal(false)" class="modal-close-btn">

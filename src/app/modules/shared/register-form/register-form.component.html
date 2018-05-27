@@ -1,3 +1,143 @@
-<p>
-  register works!
-</p>
+<div>
+  <div class="modal-header">
+    <h1>{{ isComponentRegisterType ? 'Signup' : 'Edit your profile' }}</h1>
+  </div>
+
+    <div class="registerForm">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+    <div class="single-row-container">
+
+      <!-- Firstname -->
+      <div>
+        <label>Firstname</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="firstName"
+          minlength="2"
+          required
+        >
+        <span *ngIf="(registerForm.controls.firstName.touched
+        &&
+        registerForm.controls.firstName.errors
+        &&
+        !registerForm.controls.firstName.pristine)
+          &&
+          registerForm.controls.firstName.errors.pattern"> Firstname is invalid
+        </span>
+      </div>
+
+      <!-- Lastname -->
+      <div>
+        <label>Lastname</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="lastName"
+          minlength="2"
+          required
+        >
+        <span *ngIf="(registerForm.controls.lastName.touched
+        &&
+        registerForm.controls.lastName.errors
+        &&
+        !registerForm.controls.lastName.pristine)
+          &&
+          registerForm.controls.lastName.errors.pattern"> Lastname is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="single-row-container">
+      <div>
+          <!-- Username -->
+        <label>Username</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          minlength="4"
+          required
+        >
+        <span *ngIf="(registerForm.controls.username.touched
+        &&
+        registerForm.controls.username.errors
+        &&
+        !registerForm.controls.username.pristine)
+          &&
+          registerForm.controls.username.errors.pattern"> Username is invalid
+        </span>
+      </div>
+
+      <div>
+        <!-- Email -->
+        <label>Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          minlength="4"
+          required
+        >
+        <span *ngIf="(registerForm.controls.email.touched
+        &&
+        registerForm.controls.email.errors
+        &&
+        !registerForm.controls.email.pristine)
+          &&
+          registerForm.controls.email.errors.email">Email is invalid
+        </span>
+      </div>
+    </div>
+
+    <div class="single-row-container">     
+      <div>
+        <!-- Password -->
+          <label> Password</label>
+          <input 
+            type="password"
+            class="form-control"
+            formControlName="password"
+            minlength="6"
+            required
+            placeholder="minimum length is 6 characters"
+          >
+          <span *ngIf="(registerForm.controls.password.touched
+        &&
+        registerForm.controls.password.errors
+        &&
+        !registerForm.controls.password.pristine)
+          &&
+          registerForm.controls.password.errors.minlength">Password too short
+        </span>
+      </div>
+
+       <div>
+            <!-- Password -->
+          <label> Confirm Password</label>
+          <input 
+            type="password"
+            class="form-control"
+            formControlName="confirmPassword"
+            minlength="6"
+            required
+          >
+        <span *ngIf="(registerForm.controls.confirmPassword.touched
+        &&
+        registerForm.controls.confirmPassword.errors
+        &&
+        !registerForm.controls.confirmPassword.pristine)
+          &&
+          registerForm.controls.confirmPassword.errors.minlength">Password too short
+        </span>
+       </div>
+    </div>
+        <!--  Error messages -->
+        <p *ngIf="errorMessage" class="">{{errorMessage}}</p>
+
+        <!-- Signup button -->
+        <button type="submit" [disabled]="registerForm.invalid || disableBtn">Create my account</button>
+      </form>
+    </div>
+</div>

@@ -68,20 +68,13 @@ button.main {
 
 .modal-header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 5%;
+  margin-top: 2%;
 
   h2 {
     font-size: 20px;
-  }
-
-  p {
-    max-width: 50%;
-    word-wrap: break-word;
-    font-size: 15px;
-    
   }
 
   button {
@@ -94,6 +87,18 @@ button.main {
   }
 }
 
+.side-text {
+  max-width: 50%;
+  word-wrap: break-word;
+  font-size: 15px;
+  margin-left: auto;
+  padding-bottom: 20px;
+  background: red;
+  position: absolute;
+  right: 0;
+  
+}
+
 .horizontal-rule {
   width: 20%;
 }
@@ -104,7 +109,7 @@ button.main {
 
 .custom-button {
   max-width: 200px;
-  height: 30px;
+  height: 40px;
   padding: 1.5px 0 0 1.5px;
   border: none;
   background: #2f979b;

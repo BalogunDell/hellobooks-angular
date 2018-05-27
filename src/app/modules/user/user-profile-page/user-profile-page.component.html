@@ -1,5 +1,5 @@
 <div *ngIf="isLoadingUserData">Loading</div>
-<div *ngIf="userInfo" class="content-container">
+<div *ngIf="userInfo && !showEditProfileForm" class="content-container">
   <div class="user-image">
     <img src="../../../../assets/my image.jpeg" alt="">
   </div>
@@ -26,7 +26,7 @@
       <tr>
         <td>Password: </td>
         <td>*****
-          <span>edit</span>
+          <span class="material-icons" (click)="editPassword()">mode_edit</span>
         </td>
       </tr>
 
@@ -40,7 +40,68 @@
         <td>{{ userInfo.membership }}</td>
       </tr>
     </table>
+    <button class="custom-button" (click)="createAndShowEditForm()">Edit profile</button>
+  </div>
+</div>
 
-    <button class="custom-button">Edit profile</button>
+<div *ngIf="showEditProfileForm">
+  <div>
+    <h3>Profile Update</h3>
+  </div>
+  <div class="edit-profile">
+    <form [formGroup]="editProfileForm" (ngSubmit)="updateProfile()">
+
+      <div class="edit-profile-content">
+          <!-- Firstname -->
+          <label>Firstname: </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstName"
+            minlength="2"
+            required
+          >
+      </div>
+
+      <div class="edit-profile-content">
+          <!-- Lastname -->
+          <label>Lastname: </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lastName"
+            minlength="2"
+            required
+        >
+      </div>
+    <div class="edit-profile-content">
+        <!-- Username -->
+        <label>Username: </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          minlength="4"
+          required
+        >
+    </div>
+
+    <div class="edit-profile-content">
+        <button
+        type="submit"
+        [disabled]="editProfileForm.invalid || disableBtn">Update
+      </button>
+
+        <button
+        class="cancel"
+        (click)="cancelProfileEdit()">Cancel
+      </button>
+     </div>
+
+     <!--  Error messages -->
+     <p *ngIf="errorMessage" class="">{{errorMessage}}</p>
+
+    
+    </form>
   </div>
 </div>
