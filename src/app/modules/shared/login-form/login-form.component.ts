@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['/user/library']);
       },
       error => {
-        console.log(error);
         this.errorMessage = error;
         this.disableBtn = false;
       });

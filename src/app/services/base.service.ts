@@ -5,7 +5,7 @@ import { environment } from '../../env';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './auth.service';
 
-import 'rxjs/observable/throw';
+import { _throw } from 'rxjs/observable/throw';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
@@ -19,8 +19,7 @@ export class BaseService {
   ) {}
 
   handleHttpErrorResponse(error: HttpErrorResponse) {
-    console.log(error.message);
-    return Observable.throw(error.message);
+    return _throw(error.error.message);
   }
   setHeaders(): object {
     const token = this.authService.getUserToken('token');

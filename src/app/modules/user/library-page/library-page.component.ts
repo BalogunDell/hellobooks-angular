@@ -28,7 +28,6 @@ export class LibraryPageComponent implements OnInit {
 
   getBooks() {
     this.isLoading = true;
-    console.log('i am here');
     return this.booksService.getAllBooks()
       .subscribe(
         response => {
@@ -41,6 +40,5 @@ export class LibraryPageComponent implements OnInit {
   }
 
   getBook(event) {
-    console.log(event);
   }
 }
