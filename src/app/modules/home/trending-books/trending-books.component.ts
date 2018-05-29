@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../../services/books.service';
+import { ModalService } from '../../../services/modal.service';
 
 @Component({
   selector: 'app-trending-books',
@@ -9,19 +10,23 @@ import { BooksService } from '../../../services/books.service';
 export class TrendingBooksComponent implements OnInit {
   trendingBooks = [];
   loading = true;
+  buttonText = 'Borrow book';
+
   constructor(
     private bookService: BooksService,
+    private modalService: ModalService,
   ) { }
 
   ngOnInit() {
     this.loading = true;
     this.bookService.getTrendingBooks()
-      .toPromise()
-      .then((response) => {
+      .subscribe(
+        response => {
         this.loading = false;
         this.trendingBooks = response.trendingBooks;
-      })
-      .catch((error) => {
-      });
+      },
+      error => {
+      }
+    );
   }
 }

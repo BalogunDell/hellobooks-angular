@@ -4,8 +4,8 @@
     (click)="showBookDetails(book.id)"
     class="single-book-container">
     <h4>{{ book.title }}</h4>
-    <div [class.description-overlay]="showBookOverlay">
-      <div *ngIf="showBookOverlay">
+    <div [class.description-overlay]="isBooksOverlayNeeded">
+      <div *ngIf="isBooksOverlayNeeded">
         <p>Author: {{ book.author }}</p>
         <p>Year: {{ book.year }}</p>
         <p>No of Pages: {{ book.pages }}</p>
@@ -13,6 +13,6 @@
       </div>
       <img src="{{ book.imageUrl }}" alt="">
     </div>
-    <button>{{ buttonText }}</button>
+    <button (click)="showLoginModal()">{{ buttonText }}</button>
   </div>
 </div>

@@ -7,5 +7,5 @@
     *ngIf="!isLoading"
     [books]="books"
     (selectedBook)="getBook($event)"
-    [buttonText]="Details"
-    [showBookOverlay]="true"></app-books>
+    [buttonText]="buttonText"
+    [isBooksOverlayNeeded]="true"></app-books>

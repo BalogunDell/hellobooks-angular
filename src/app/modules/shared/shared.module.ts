@@ -11,6 +11,7 @@ import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.co
 import { FooterComponent } from './footer/footer.component';
 import { BooksComponent } from './books/books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BooksTableComponent } from './books-table/books-table.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     FooterComponent,
     BooksComponent,
     BookDetailComponent,
+    BooksTableComponent,
   ],
 
   exports: [
@@ -36,7 +38,8 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     DashboardNavigationComponent,
     DashboardHeaderComponent,
     FooterComponent,
-    BooksComponent
+    BooksComponent,
+    BooksTableComponent
   ]
 })
 export class SharedModule { }
