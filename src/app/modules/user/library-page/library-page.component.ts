@@ -12,7 +12,7 @@ import { ModalService } from '../../../services/modal.service';
 export class LibraryPageComponent implements OnInit {
   books = [];
   isLoading = false;
-  token;
+  buttonText = 'Details';
 
   constructor(
     private booksService: BooksService,

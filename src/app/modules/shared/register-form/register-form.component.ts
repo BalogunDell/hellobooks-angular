@@ -33,9 +33,9 @@ disableBtn: boolean;
 
 createForm() {
   this.registerForm = this.formBuilder.group({
-    firstName: ['',  [Validators.required, Validators.pattern(/[^0-9]/i)]],
-    lastName: ['', [ Validators.required, Validators.pattern(/[^0-9]/i)]],
-    username: ['', [Validators.required, Validators.pattern(/[^0-9]/i)]],
+    firstName: ['',  [Validators.required, Validators.pattern(/[^0-9]/)]],
+    lastName: ['', [ Validators.required, Validators.pattern(/[^0-9]/)]],
+    username: ['', [Validators.required, Validators.pattern(/[^0-9]/)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [ Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', [ Validators.required, Validators.minLength(6)]],
@@ -43,6 +43,9 @@ createForm() {
 }
 
  register() {
+   console.log(this.registerForm);
+   console.log(this.registerForm.value);
+
    if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
      this.errorMessage = 'Passwords do not match!';
      return;
