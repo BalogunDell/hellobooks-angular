@@ -12,7 +12,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class BaseService {
   protected baseApi = environment.baseApi;
-
+  protected userId;
   constructor(
     protected http: HttpClient,
     protected authService: AuthService,
@@ -27,5 +27,10 @@ export class BaseService {
       headers: new HttpHeaders({ 'Authorization': token })
     };
     return httpOptions;
+  }
+
+  getUserId(): number {
+    this.userId = this.authService.decodeToken().id;
+    return this.userId;
   }
 }

@@ -24,7 +24,35 @@
       line-height: 3px;
     }
 
-    .description-overlay {
+    .general-description-overlay {
+      position: relative;
+
+      img {
+        max-width: 180px;
+        max-height: auto;
+        padding-bottom: 10px;
+      }
+
+      div {
+        height: 220px;
+        width: 180px;
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        text-align: center;
+        color: white;
+        transition: visibility 0.5s, opacity 0.5s;
+
+        p {
+          padding-top: 5%;
+          padding-bottom: 1%;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .general-description {
       position: relative;
 
       img {
@@ -67,7 +95,7 @@
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1999);
     transform: scale(1.1);
 
-    .description-overlay {
+    .general-description-overlay {
 
       img {
         max-width: 180px;

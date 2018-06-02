@@ -4,12 +4,13 @@
   </div>
 
   <div *ngIf="isLoading">I am still loading</div>
-  <app-books
-    *ngIf="!isLoading"
-    [books]="books"
-    (selectedBook)="goToBookDetailsPage($event)"
-    [buttonText]="buttonText"
-    [showModalOnButtonClick]="false"
-    [isBooksOverlayNeeded]="true">
-  </app-books>
 </div>
+<app-books
+  *ngIf="!isLoading"
+  [books]="books"
+  (selectedBook)="goToBookDetailsPage($event)"
+  [buttonText]="buttonText"
+  [showModalOnButtonClick]="false"
+  [isBooksOverlayNeeded]="false"
+  [isBookButtonNeeded]= true>
+</app-books>

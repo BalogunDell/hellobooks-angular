@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Book } from '../../../interfaces/book.interface';
 import { ModalService } from '../../../services/modal.service';
+import { ComponentType } from '../../../enums/component-type.enum';
 
 @Component({
   selector: 'app-books',
@@ -12,7 +13,8 @@ export class BooksComponent {
   @Input() bookId: number;
   @Input() buttonText: string;
   @Input() isBooksOverlayNeeded: boolean;
-  @Input() showModalOnButtonClick;
+  @Input() showModalOnButtonClick: boolean;
+  @Input() isBookButtonNeeded: boolean;
 
   @Output() selectedBook = new EventEmitter<object>();
 
@@ -43,9 +45,9 @@ export class BooksComponent {
    */
   showLoginModal() {
     if (this.showModalOnButtonClick) {
-      return this.modalService.showModal(true, 1);
+      return this.modalService.showModal(true, ComponentType.LOGIN);
     } else {
-      return this.modalService.showModal(false, 1);
+      return this.modalService.showModal(false, ComponentType.LOGIN);
     }
   }
 }

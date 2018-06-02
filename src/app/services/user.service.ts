@@ -47,16 +47,14 @@ export class UserService extends BaseService {
    * @memberof UserService
    */
   getUser() {
-   const userId = this.authService.decodeToken().id;
-   return this.http.get(`${this.baseApi}/users/${userId}`, this.setHeaders())
+   return this.http.get(`${this.baseApi}/users/${this.getUserId()}`, this.setHeaders())
     .do(response => response)
     .catch(this.handleHttpErrorResponse);
 
   }
 
   updateProfile(newUserData) {
-    const userId = this.authService.decodeToken().id;
-    return this.http.put(`${this.baseApi}/users/${userId}`, newUserData, this.setHeaders())
+    return this.http.put(`${this.baseApi}/users/${this.getUserId()}`, newUserData, this.setHeaders())
       .do(response => response)
       .catch(this.handleHttpErrorResponse);
   }

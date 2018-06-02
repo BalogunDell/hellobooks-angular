@@ -1,12 +1,38 @@
-<div class="book-detail-container">
-    <h3>Title of book + Book Details</h3>
-    <div class="book-detail-content">
-      <div class="book-image">
-        book image
+<div *ngIf="book" class="space-up">
+    <h3>{{book.title}} Detail</h3>
+  <div class="book-detail-container">
+    <div class="book-image">
+        <app-books
+        [books]="[book]"
+        [showModalOnButtonClick]="false"
+        [isBooksOverlayNeeded]="false">
+        </app-books>
       </div>
-    
+
       <div class="book-details">
-        Book details
+        <div>
+          <p>Author: {{ book.author }}</p>
+          <p>Year: {{ book.year }}</p>
+          <p>No of Pages: {{ book.pages }}</p>
+          <p>Category: {{ book.Category.category }}</p>
+          <p>Quantity available: {{ book.quantity }}</p>
+          <hr class="full-horizontal-rule">
+          <p>Description: {{ book.description }}</p>
+          <hr class="full-horizontal-rule">
+          <button 
+            *ngIf="isBorrowButtonEnable"
+            (click)="borrowBook(book.id)">Borrow this book
+          </button>
+          <button 
+            *ngIf="!isBorrowButtonEnable"
+            (click)="goBackToLibary()">Back to library
+          </button>
+
+          <button 
+            *ngIf="navigateUserToHistoryPage"
+            (click)="goToHistoryPage()">View your borrow history
+          </button>
+        </div>
       </div>
-    </div>
+  </div>
 </div>
