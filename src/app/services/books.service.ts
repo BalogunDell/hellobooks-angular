@@ -38,17 +38,47 @@ export class BooksService extends BaseService {
   }
 
   /**
+  * This fetches a single book
+  *
+  * @param {number} bookId
+  *
+  * @returns {Observable<any>}
+  *
+  * @memberof BooksService
+  */
+ getBook(bookId): Observable<any> {
+  return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/${bookId}`,
+  this.setHeaders())
+    .do(response => response)
+    .catch(this.handleHttpErrorResponse);
+}
+
+  /**
   * This fetches a users borrowed books
   *
   * @returns {Observable<any>}
   *
   * @memberof BooksService
   */
-
   getBorrowedBooks() {
-    const userId = this.authService.decodeToken().id;
-    return this.http.get(`${this.baseApi}/users/${userId}/books`, this.setHeaders())
+    return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books`,
+    this.setHeaders())
       .do(response => response)
+      .catch(this.handleHttpErrorResponse);
+  }
+
+  /**
+  * This function allows a user to borrow a book
+  *
+  * @returns {Observable<object>}
+  *
+  * @memberof BooksService
+  */
+  borrowBook(bookId: number): Observable<any> {
+    return this.http.post(`${this.baseApi}/users/${this.getUserId()}/books/`,
+      {bookId},
+      this.setHeaders()
+    ).do(response => response)
       .catch(this.handleHttpErrorResponse);
   }
 }

@@ -56,7 +56,6 @@
     right: 0;
     height: 100vh;
     padding: 0 20px 0 20px;
-    background: red;
     display: none;
   }
   .dashboard-header > button > i:hover .side-menu-overlay {
@@ -69,6 +68,7 @@
     background-position: center center;
     color: white;
     padding: 10px 0 10px 0 ;
+    width: 100%;
 
     img {
       max-height: 50px; 

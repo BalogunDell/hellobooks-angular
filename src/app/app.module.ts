@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './modules/shared/page-not-found/page-not-
 import { FirstSectionComponent } from './modules/home/first-section/first-section.component';
 import { TrendingBooksComponent } from './modules/home/trending-books/trending-books.component';
 import { BookOfTheDayComponent } from './modules/home/book-of-the-day/book-of-the-day.component';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { BookOfTheDayComponent } from './modules/home/book-of-the-day/book-of-th
     UserService,
     AuthService,
     AuthGuardService,
+    AlertService,
 
   ],
   bootstrap: [AppComponent]

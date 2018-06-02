@@ -1,6 +1,8 @@
 .wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
 
 
   .app-dashboard {
@@ -18,23 +20,19 @@
     width: 85%;
     height: 803px;
     overflow: auto;
-    // display: grid;
-    // grid-template-rows: .5fr 3fr;
+
   }
-  }
+}
 
 @media screen and (max-width: 640px) {
   .wrapper {
-
     .app-dashboard {
       width: 0;
     }
 
     .app-content-area {
-      background: blue;
       width: 100%;
-      // display: grid;
-      // grid-template-rows: .5fr 3fr;
+      background: red;
     }
   }
 }

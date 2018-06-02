@@ -1,0 +1,11 @@
+<div 
+  *ngIf="isAlertNeeded && typeOfAlert === alertType.SUCCESS"
+  class="alert-success"
+  [class.alert-success-animate]="isAlertNeeded"
+  >
+  {{message}}
+</div>
+
+<div *ngIf="isAlertNeeded && typeOfAlert === alertType.ERROR" class="alert-error">
+    {{message}}
+  </div>

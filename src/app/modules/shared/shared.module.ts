@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BooksComponent } from './books/books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BooksTableComponent } from './books-table/books-table.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { BooksTableComponent } from './books-table/books-table.component';
     BooksComponent,
     BookDetailComponent,
     BooksTableComponent,
+    AlertComponent,
   ],
 
   exports: [
@@ -40,7 +42,8 @@ import { BooksTableComponent } from './books-table/books-table.component';
     FooterComponent,
     BooksComponent,
     BookDetailComponent,
-    BooksTableComponent
+    BooksTableComponent,
+    AlertComponent,
   ]
 })
 export class SharedModule { }
