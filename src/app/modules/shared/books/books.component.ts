@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Book } from '../../../interfaces/book.interface';
 import { ModalService } from '../../../services/modal.service';
 
@@ -7,11 +7,12 @@ import { ModalService } from '../../../services/modal.service';
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss']
 })
-export class BooksComponent implements OnInit {
+export class BooksComponent {
   @Input() books: Book[];
   @Input() bookId: number;
   @Input() buttonText: string;
   @Input() isBooksOverlayNeeded: boolean;
+  @Input() showModalOnButtonClick;
 
   @Output() selectedBook = new EventEmitter<object>();
 
@@ -19,24 +20,16 @@ export class BooksComponent implements OnInit {
     private modalService: ModalService,
   ) {}
 
-  ngOnInit() {
-    console.log(this.buttonText);
-    console.log(this.isBooksOverlayNeeded);
-  }
-
   /**
-   * This method gets the details o a particular
-   * book
+   * This method gets the the id of the
+   * book a user clicks on
    *
-   * @param {any} bookId
+   * @param {number} bookId
+   *
    * @memberof BooksComponent
    */
-  showBookDetails(bookId) {
-    this.books.map((book) => {
-      if (book.id === bookId) {
-        this.selectedBook.emit(book);
-      }
-    });
+  getBookId(bookId) {
+    this.selectedBook.emit(bookId);
   }
 
   /**
@@ -49,6 +42,10 @@ export class BooksComponent implements OnInit {
    * @returns {void}
    */
   showLoginModal() {
-    this.modalService.showModal(true, 1);
+    if (this.showModalOnButtonClick) {
+      return this.modalService.showModal(true, 1);
+    } else {
+      return this.modalService.showModal(false, 1);
+    }
   }
 }

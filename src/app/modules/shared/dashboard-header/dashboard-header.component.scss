@@ -1,13 +1,13 @@
 .dashboard-header {
-  align-self: flex-start;
   align-items: center;
   background: #2f979b;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 1% 0 1% 0;
-  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  width: 90%;
+  position: fixed;
+  z-index: 1000;
 
   img {
     max-height: 80px; 
@@ -21,7 +21,7 @@
     background: rgba($color: #ffffff, $alpha: 0.8);
   }
   
-  button {
+  button.logout {
     margin: 0 1% 0 0;
     max-width: 200px;
     height: 30px;
@@ -32,6 +32,16 @@
 
   }
 
+  button.menu {
+    visibility: hidden;
+    border: none;
+    background: transparent;
+    i {
+      cursor: pointer;
+      font-size: 30px;
+      color: white;
+    }
+  }
 }
 
   .content-display-section {
@@ -41,9 +51,42 @@
     width: 100%;
   }
 
-@media screen and (max-width: 640px) {
+  .side-menu-overlay {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    padding: 0 20px 0 20px;
+    background: red;
+    display: none;
+  }
+  .dashboard-header > button > i:hover .side-menu-overlay {
+    display: block;
+  }
 
-.dashboard-content-area {
-  flex: 1, 1, 70%;
-}
+@media screen and (max-width: 640px) {
+  .dashboard-header {
+    background-image: url('../../../../assets/homebg.jpg');
+    background-position: center center;
+    color: white;
+    padding: 10px 0 10px 0 ;
+
+    img {
+      max-height: 50px; 
+      padding-left: 20px;
+      justify-self: flex-end;
+    }
+
+    button.logout {
+      visibility: hidden;
+    }
+    button.menu {
+      visibility: visible;
+      padding-right: 20px;
+      justify-self: flex-start;
+    }
+
+    input {
+      visibility: hidden;
+    }
+  }
 }

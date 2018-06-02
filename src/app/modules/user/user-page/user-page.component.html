@@ -1,15 +1,14 @@
 <div class="wrapper">
- <div class="dashboard-navigation">
-  <app-dashboard-navigation></app-dashboard-navigation>
+ <div class="app-dashboard">
+    <app-dashboard-navigation></app-dashboard-navigation>
  </div>
 
- <div class="dashboard-header">
-  <div>
+ <div class="app-content-area">
+    <div>
       <app-dashboard-header></app-dashboard-header>
-  </div>
-  
-  <div class="content-display-area">
-    <router-outlet></router-outlet>
-  </div>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
  </div>
 </div>
