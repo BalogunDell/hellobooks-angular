@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { BooksService } from '../../../services/books.service';
 import { Book } from '../../../interfaces/book.interface';
 import { AuthService } from '../../../services/auth.service';
@@ -17,6 +19,7 @@ export class LibraryPageComponent implements OnInit {
   constructor(
     private booksService: BooksService,
     private modalService: ModalService,
+    private router: Router,
 
   ) {
   }
@@ -34,11 +37,19 @@ export class LibraryPageComponent implements OnInit {
         this.isLoading = false;
         this.books = response.books;
       },
-      error => {
-        console.log(error, 'error');
-      });
+      error => {});
   }
 
-  getBook(event) {
+  /**
+   * Gets the id of the book that was
+   * clicked on
+   *
+   * @param {number} event
+   *
+   * @memberof LibraryPageComponent
+   */
+  goToBookDetailsPage(event) {
+    console.log(event);
+    this.router.navigate(['/user/library/', event]);
   }
 }

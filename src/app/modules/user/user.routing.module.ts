@@ -5,6 +5,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { LibraryPageComponent } from './library-page/library-page.component';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 import { HistoryPageComponent } from './history-page/history-page.component';
+import { BookDetailComponent } from '../shared/book-detail/book-detail.component';
 
 const routes: Routes = [
   { path: '', component: UserPageComponent,
@@ -12,6 +13,11 @@ const routes: Routes = [
       {
         path: 'library',
         component: LibraryPageComponent,
+      },
+
+      {
+        path: 'library/:id',
+        component: BookDetailComponent,
       },
 
        {

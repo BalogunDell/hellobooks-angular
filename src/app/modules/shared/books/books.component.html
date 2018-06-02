@@ -1,7 +1,7 @@
 <div class="books-holder">
   <div
     *ngFor="let book of books"
-    (click)="showBookDetails(book.id)"
+    (click)="getBookId(book.id)"
     class="single-book-container">
     <h4>{{ book.title }}</h4>
     <div [class.description-overlay]="isBooksOverlayNeeded">

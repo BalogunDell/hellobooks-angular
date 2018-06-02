@@ -39,6 +39,7 @@ import { BooksTableComponent } from './books-table/books-table.component';
     DashboardHeaderComponent,
     FooterComponent,
     BooksComponent,
+    BookDetailComponent,
     BooksTableComponent
   ]
 })
