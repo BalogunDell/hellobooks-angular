@@ -6,6 +6,9 @@ import { LibraryPageComponent } from './library-page/library-page.component';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 import { HistoryPageComponent } from './history-page/history-page.component';
 import { BookDetailComponent } from '../shared/book-detail/book-detail.component';
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import { BookPageComponent } from './book-page/book-page.component';
+
 
 const routes: Routes = [
   { path: '', component: UserPageComponent,
@@ -28,6 +31,14 @@ const routes: Routes = [
        {
         path: 'history',
         component: HistoryPageComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardPageComponent,
+      },
+      {
+        path: 'book',
+        component: BookPageComponent,
       }
     ]
   }

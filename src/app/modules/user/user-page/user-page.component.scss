@@ -19,7 +19,8 @@
   .app-content-area {
     width: 85%;
     height: 803px;
-    overflow: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
   }
 }

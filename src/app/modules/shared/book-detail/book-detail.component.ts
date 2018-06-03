@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { BooksService } from '../../../services/books.service';
 import { AlertService } from '../../../services/alert.service';
 import { AlertType } from '../../../enums/alert-type';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -18,11 +19,13 @@ export class BookDetailComponent implements OnInit {
   alertType = AlertType;
   isBorrowButtonEnable = true;
   navigateUserToHistoryPage = false;
+  userRole;
 
   constructor(
     private route: ActivatedRoute,
     private bookService: BooksService,
     private alertService: AlertService,
+    private authService: AuthService,
     private location: Location,
     private router: Router
   ) {}
@@ -30,6 +33,9 @@ export class BookDetailComponent implements OnInit {
   ngOnInit() {
     const bookId = this.route.snapshot.paramMap.get('id');
     this.getBook(bookId);
+
+     this.userRole = this.authService.decodeToken().role;
+     console.log(this.userRole);
   }
 
   /**
@@ -68,6 +74,7 @@ export class BookDetailComponent implements OnInit {
         response => {
           this.alertService.showAlert(this.alertType.SUCCESS, response.message);
           this.navigateUserToHistoryPage = true;
+          this.isBorrowButtonEnable = false;
         },
         error => {
           this.alertService.showAlert(this.alertType.ERROR, error);

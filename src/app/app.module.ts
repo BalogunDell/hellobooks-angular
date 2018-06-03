@@ -19,6 +19,7 @@ import { TrendingBooksComponent } from './modules/home/trending-books/trending-b
 import { BookOfTheDayComponent } from './modules/home/book-of-the-day/book-of-the-day.component';
 import { AlertService } from './services/alert.service';
 
+// FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,5 +1,5 @@
 table {
-    margin: 0 auto;
+    margin: 50px auto;
     width: 90%;
   
     th {
@@ -9,6 +9,25 @@ table {
   
     tr {
       background: #faf9f9;
+      text-align: center;
+    }
+
+    td {
+      img {
+        max-height: 50px;
+      }
+
+      i.edit {
+        color: green;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      i.delete {
+        color: red;
+        font-size: 20px;
+        cursor: pointer;
+      }
     }
   }
   
@@ -16,5 +35,6 @@ table {
     table {
       margin: 0 auto;
       width: 90%;
+      overflow-y: auto;
     }
   }

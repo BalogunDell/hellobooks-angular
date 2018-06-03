@@ -37,6 +37,19 @@ export class BooksService extends BaseService {
     .catch(this.handleHttpErrorResponse);
   }
 
+    /**
+  * This fetches a users borrowed books
+  *
+  * @returns {Observable<any>}
+  *
+  * @memberof BooksService
+  */
+ getBorrowedBooks() {
+  return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/`, this.setHeaders())
+    .do(response => response)
+    .catch(this.handleHttpErrorResponse);
+}
+
   /**
   * This fetches a single book
   *
@@ -54,21 +67,9 @@ export class BooksService extends BaseService {
 }
 
   /**
-  * This fetches a users borrowed books
-  *
-  * @returns {Observable<any>}
-  *
-  * @memberof BooksService
-  */
-  getBorrowedBooks() {
-    return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books`,
-    this.setHeaders())
-      .do(response => response)
-      .catch(this.handleHttpErrorResponse);
-  }
-
-  /**
   * This function allows a user to borrow a book
+  * 
+  * @param {number} bookId
   *
   * @returns {Observable<object>}
   *
@@ -81,4 +82,18 @@ export class BooksService extends BaseService {
     ).do(response => response)
       .catch(this.handleHttpErrorResponse);
   }
+
+    /**
+  * This function gets all the borrowed books for the admin
+  *
+  * @returns {Observable<object>}
+  *
+  * @memberof BooksService
+  */
+ getAllBorrowedBooks(): Observable<any> {
+  return this.http.get(`${this.baseApi}/books/borrowedbooks/`,
+    this.setHeaders()
+  ).do(response => response)
+    .catch(this.handleHttpErrorResponse);
+}
 }
