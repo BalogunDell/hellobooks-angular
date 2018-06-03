@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -68,7 +67,7 @@ export class BooksService extends BaseService {
 
   /**
   * This function allows a user to borrow a book
-  * 
+  *
   * @param {number} bookId
   *
   * @returns {Observable<object>}
@@ -83,7 +82,7 @@ export class BooksService extends BaseService {
       .catch(this.handleHttpErrorResponse);
   }
 
-    /**
+  /**
   * This function gets all the borrowed books for the admin
   *
   * @returns {Observable<object>}
@@ -95,5 +94,20 @@ export class BooksService extends BaseService {
     this.setHeaders()
   ).do(response => response)
     .catch(this.handleHttpErrorResponse);
-}
+  }
+
+   /**
+  * This function deletes a book
+  *
+  * @returns {Observable<object>}
+  *
+  * @memberof BooksService
+  */
+ deleteBook(bookId): Observable<any> {
+  return this.http.delete(`${this.baseApi}/books/${bookId}`,
+    this.setHeaders()
+  ).do(response => response)
+    .catch(this.handleHttpErrorResponse);
+  }
+
 }

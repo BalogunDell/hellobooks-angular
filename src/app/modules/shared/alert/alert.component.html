@@ -3,9 +3,22 @@
   class="alert-success"
   [class.alert-success-animate]="isAlertNeeded"
   >
-  {{message}}
+  {{ message }}
 </div>
 
-<div *ngIf="isAlertNeeded && typeOfAlert === alertType.ERROR" class="alert-error">
-    {{message}}
+<div 
+  *ngIf="isAlertNeeded && typeOfAlert === alertType.ERROR"
+  class="alert-error">
+    {{ message }}
+  </div>
+
+  <div 
+    *ngIf="isAlertNeeded && typeOfAlert === alertType.CONFIRMATION" 
+    class="alert-confirmation">
+    <p>{{ message }} </p>
+    <br>
+    <div>
+        <button (click)="confirmAction(true)" [disabled]="!isConfirmOrCancelButtonEnabled">Yes</button>
+        <button (click)="cancelAction()" [disabled]="!isConfirmOrCancelButtonEnabled">Cancel</button>
+    </div>
   </div>

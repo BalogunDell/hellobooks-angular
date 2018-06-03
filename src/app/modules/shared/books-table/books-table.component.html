@@ -13,7 +13,7 @@
     <td>{{ book.pages }}</td>
     <td>
       <i class="material-icons edit">edit</i>
-      <i class="material-icons delete">delete</i>
+      <i class="material-icons delete" (click)="deleteBook(book)">delete</i>
     </td>
   </tr>
   </table>
@@ -32,8 +32,6 @@
         <td>{{ book.quantity }}</td>
         <td>{{ book.pages }}</td>
         <td>
-          <i class="material-icons">edit</i>
-          <i class="material-icons">trash</i>
         </td>
       </tr>
       </table>
