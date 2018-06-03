@@ -1,0 +1,37 @@
+<div class="content-container">
+  <h3>Dashboard</h3>
+  <div class="summary-table">
+    <table>
+      <tr>
+        <th>Summary</th>
+      </tr>
+      <hr class="full-horizontal-rule">
+      <tr>
+        <td>Total Books in Library</td>
+        <td>{{ totalBooksCount }}</td>
+      </tr>
+      
+      <tr>
+          <td>Total Books Borrowed</td>
+          <td>{{ totalBorrowedBooksCount }}</td>
+        </tr>
+  
+      <tr>
+        <td>Books Returned</td>
+        <td>{{ totalReturnedBooksCount }}</td>
+      </tr>
+
+      <tr>
+        <td>Pending Return</td>
+        <td>{{ totalBooksNotReturnedCount }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <app-books-table
+    *ngIf="allLibraryBooks.length > 0"
+    [books]="allLibraryBooks"
+    [tableHeaders]="tableHeaders"
+    [tableType]="bookTableType.ALLBOOKS"
+  ></app-books-table>
+</div>

@@ -20,17 +20,17 @@
           <p>Description: {{ book.description }}</p>
           <hr class="full-horizontal-rule">
           <button 
-            *ngIf="isBorrowButtonEnable"
+            *ngIf="isBorrowButtonEnable && userRole != 'admin'"
             (click)="borrowBook(book.id)">Borrow this book
           </button>
           <button 
-            *ngIf="!isBorrowButtonEnable"
+            *ngIf="!isBorrowButtonEnable || userRole === 'admin'"
             (click)="goBackToLibary()">Back to library
           </button>
 
           <button 
             *ngIf="navigateUserToHistoryPage"
-            (click)="goToHistoryPage()">View your borrow history
+            (click)="gotToHistoryPage()">View your borrow history
           </button>
         </div>
       </div>

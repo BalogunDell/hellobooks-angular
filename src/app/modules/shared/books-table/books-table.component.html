@@ -1,22 +1,38 @@
-<div>
-    <h3>History Page</h3>
-  </div>
-  
-  <table>
-    <tr>
-      <th>Book Image</th>
-      <th>Book Title</th>
-      <th>Author</th>
-      <th>Date Borrowed</th>
-      <th>Expected Return Date</th>
-    </tr>
-  
-    <tr>
-      <td><img src="" alt="book image"></td>
-      <td>Angular 4</td>
-      <td>Delight Balogun</td>
-      <td>27th, March 2019</td>
-      <td>30th, June 2019</td>
-    </tr>
+ <table *ngIf="books.length > 0 && tableType === bookTableType.ALLBOOKS">
+  <tr>
+    <th *ngFor="let header of tableHeaders">{{header}}</th>
+  </tr>
+
+  <tr *ngFor="let book of books">
+    <td>{{ book.isbn }}</td>
+    <td><img src="{{ book.imageUrl }}" alt="{{ book.title }} image"></td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.Category.category }}</td>
+    <td>{{ book.quantity }}</td>
+    <td>{{ book.pages }}</td>
+    <td>
+      <i class="material-icons edit">edit</i>
+      <i class="material-icons delete" (click)="deleteBook(book)">delete</i>
+    </td>
+  </tr>
   </table>
+
+  <table *ngIf="books.length > 0 && tableType === bookTableType.HISTORY">
+      <tr>
+        <th *ngFor="let header of tableHeaders">{{header}}</th>
+      </tr>
+    
+      <tr *ngFor="let book of books">
+        <td>{{ book.isbn }}</td>
+        <td><img src="{{ book.imgUrl }}" alt="{{ book.title }} image"></td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.Category.category }}</td>
+        <td>{{ book.quantity }}</td>
+        <td>{{ book.pages }}</td>
+        <td>
+        </td>
+      </tr>
+      </table>
   

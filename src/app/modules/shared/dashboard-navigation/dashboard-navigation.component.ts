@@ -15,7 +15,7 @@ export class DashboardNavigationComponent implements OnInit {
   adminNavigationLinks = [
     { menuText: 'Dashboard', icon: 'dashboard', urlLink: 'dashboard' },
     { menuText: 'Library', icon: 'books', urlLink: 'library' },
-    { menuText: 'Upload', icon: 'add', urlLink: 'upload' },
+    { menuText: 'Upload', icon: 'add', urlLink: 'book' },
   ];
 
   userNavigationLinks = [

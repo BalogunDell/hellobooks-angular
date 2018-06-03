@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { UserService } from '../../../services/user.service';
 import { ModalService } from '../../../services/modal.service';
+import { AlertService } from '../../../services/alert.service';
+import { AlertType } from '../../../enums/alert-type';
 
 @Component({
   selector: 'app-user-profile-page',
@@ -15,12 +17,13 @@ export class UserProfilePageComponent implements OnInit {
   userInfo: object;
   isLoadingUserData: boolean;
   showEditProfileForm: boolean;
-  errorMessage: string;
+  alertType = AlertType;
 
   constructor(
     private userService: UserService,
     private modalService: ModalService,
     private formBuilder: FormBuilder,
+    private alertService: AlertService,
   ) { }
 
   ngOnInit() {
@@ -58,7 +61,7 @@ export class UserProfilePageComponent implements OnInit {
           this.userInfo = response.userData;
           this.isLoadingUserData = false;
         },
-        error => console.log(error)
+        error => {}
       );
   }
   /**
@@ -98,9 +101,10 @@ export class UserProfilePageComponent implements OnInit {
         response => {
          this.userInfo = response.user;
          this.showEditProfileForm = false;
+         this.alertService.showAlert(this.alertType.SUCCESS, 'Profile successfully updated.');
         },
         error => {
-         this.errorMessage = error;
+          this.alertService.showAlert(this.alertType.ERROR, error);
         }
       );
   }

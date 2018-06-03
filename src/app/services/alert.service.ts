@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AlertService {
 
   alertComponoent;
+  confirmUserAction = new Subject<any>();
 
   /**
    * Register the alert element so that
