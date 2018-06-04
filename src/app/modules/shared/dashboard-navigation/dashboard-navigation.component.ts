@@ -22,7 +22,6 @@ export class DashboardNavigationComponent implements OnInit {
     { menuText: 'My profile', icon: 'user', urlLink: 'profile' },
     { menuText: 'Library', icon: 'books', urlLink: 'library' },
     { menuText: 'History', icon: 'time', urlLink: 'history' },
-    { menuText: 'Borrowed books', icon: 'books', urlLink: '/borrowed-books' },
   ];
 
   constructor(

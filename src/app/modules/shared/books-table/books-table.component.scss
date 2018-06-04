@@ -28,6 +28,17 @@ table {
         font-size: 20px;
         cursor: pointer;
       }
+
+      button.return-book {
+        padding: 5px 5px;
+        background: #2f979b;
+        color: white;
+        border-radius: 2px;
+        &:disabled {
+          background: grey;
+          cursor: not-allowed;
+        }
+      }
     }
   }
   

@@ -24,14 +24,16 @@
       </tr>
     
       <tr *ngFor="let book of books">
-        <td>{{ book.isbn }}</td>
-        <td><img src="{{ book.imgUrl }}" alt="{{ book.title }} image"></td>
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
-        <td>{{ book.Category.category }}</td>
-        <td>{{ book.quantity }}</td>
-        <td>{{ book.pages }}</td>
+        <td><img src="{{ book.Book.imageUrl }}" alt="{{ book.title }} image"></td>
+        <td>{{ book.Book.title }}</td>
+        <td>{{ book.Book.author }}</td>
+        <td>{{ book.dateBorrowed }}</td>
+        <td>{{ book.expectedReturnDate }}</td>
         <td>
+          <button 
+            class="return-book" 
+            (click)="returnBook(book.id)" 
+            [disabled]="book.returnStatus || !isReturnButtonEnabled">Return Book</button>
         </td>
       </tr>
       </table>

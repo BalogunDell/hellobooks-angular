@@ -44,7 +44,7 @@ export class BooksService extends BaseService {
   * @memberof BooksService
   */
  getBorrowedBooks() {
-  return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/`, this.setHeaders())
+  return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/`)
     .do(response => response)
     .catch(this.handleHttpErrorResponse);
 }
@@ -59,8 +59,7 @@ export class BooksService extends BaseService {
   * @memberof BooksService
   */
  getBook(bookId): Observable<any> {
-  return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/${bookId}`,
-  this.setHeaders())
+  return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/${bookId}`)
     .do(response => response)
     .catch(this.handleHttpErrorResponse);
 }
@@ -76,9 +75,8 @@ export class BooksService extends BaseService {
   */
   borrowBook(bookId: number): Observable<any> {
     return this.http.post(`${this.baseApi}/users/${this.getUserId()}/books/`,
-      {bookId},
-      this.setHeaders()
-    ).do(response => response)
+      {bookId})
+      .do(response => response)
       .catch(this.handleHttpErrorResponse);
   }
 
@@ -90,13 +88,12 @@ export class BooksService extends BaseService {
   * @memberof BooksService
   */
  getAllBorrowedBooks(): Observable<any> {
-  return this.http.get(`${this.baseApi}/books/borrowedbooks/`,
-    this.setHeaders()
-  ).do(response => response)
+  return this.http.get(`${this.baseApi}/books/borrowedbooks/`)
+    .do(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 
-   /**
+  /**
   * This function deletes a book
   *
   * @returns {Observable<object>}
@@ -104,9 +101,22 @@ export class BooksService extends BaseService {
   * @memberof BooksService
   */
  deleteBook(bookId): Observable<any> {
-  return this.http.delete(`${this.baseApi}/books/${bookId}`,
-    this.setHeaders()
-  ).do(response => response)
+  return this.http.delete(`${this.baseApi}/books/${bookId}`)
+    .do(response => response)
+    .catch(this.handleHttpErrorResponse);
+  }
+
+   /**
+  * This function returns a borrowed book
+  *
+  * @returns {Observable<object>}
+  *
+  * @memberof BooksService
+  */
+ returnBook(bookId): Observable<any> {
+  return this.http.put(`${this.baseApi}/users/${this.getUserId()}/books`,
+    {bookId})
+    .do(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 

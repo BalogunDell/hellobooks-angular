@@ -7,7 +7,6 @@ import { UserProfilePageComponent } from './user-profile-page/user-profile-page.
 import { HistoryPageComponent } from './history-page/history-page.component';
 import { BookDetailComponent } from '../shared/book-detail/book-detail.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
-import { BookPageComponent } from './book-page/book-page.component';
 
 
 const routes: Routes = [
@@ -36,10 +35,6 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardPageComponent,
       },
-      {
-        path: 'book',
-        component: BookPageComponent,
-      }
     ]
   }
 ];

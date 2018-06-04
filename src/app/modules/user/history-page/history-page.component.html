@@ -1,5 +1,8 @@
-<app-books-table
-  [books]="books"
-  [tableHeaders]="tableHeaders"
-></app-books-table>
-<app-book-detail></app-book-detail>
+<div class="content-container">
+  <h3>Borrow History</h3>
+  <app-books-table
+    [books]="books"
+    [tableHeaders]="tableHeaders"
+    [tableType]="bookTableType.HISTORY"
+  ></app-books-table>
+</div>
