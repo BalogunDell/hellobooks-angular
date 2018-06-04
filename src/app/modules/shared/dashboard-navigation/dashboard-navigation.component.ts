@@ -11,7 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 export class DashboardNavigationComponent implements OnInit {
 
   currentNavigationLinks;
-  userInfo;
+  userInfo: UserInfo;
   adminNavigationLinks = [
     { menuText: 'Dashboard', icon: 'dashboard', urlLink: 'dashboard' },
     { menuText: 'Library', icon: 'books', urlLink: 'library' },
