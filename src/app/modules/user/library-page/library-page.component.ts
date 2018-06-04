@@ -49,7 +49,6 @@ export class LibraryPageComponent implements OnInit {
    * @memberof LibraryPageComponent
    */
   goToBookDetailsPage(event) {
-    console.log(event);
     this.router.navigate(['/user/library/', event]);
   }
 }

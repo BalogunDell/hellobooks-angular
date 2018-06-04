@@ -33,9 +33,7 @@ export class BookDetailComponent implements OnInit {
   ngOnInit() {
     const bookId = this.route.snapshot.paramMap.get('id');
     this.getBook(bookId);
-
-     this.userRole = this.authService.decodeToken().role;
-     console.log(this.userRole);
+    this.userRole = this.authService.decodeToken().role;
   }
 
   /**
@@ -53,7 +51,6 @@ export class BookDetailComponent implements OnInit {
         response => {
           this.book = response.payload;
           this.isBookDetailLoading = false;
-          console.log(this.book);
         },
         error => {
           this.alertService.showAlert(this.alertType.ERROR, error.message);

@@ -43,8 +43,6 @@ createForm() {
 }
 
  register() {
-   console.log(this.registerForm);
-   console.log(this.registerForm.value);
 
    if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
      this.errorMessage = 'Passwords do not match!';

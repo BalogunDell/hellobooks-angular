@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../../services/books.service';
-
+import { BookTableType } from '../../../enums/books-table-type';
+import { AlertService } from '../../../services/alert.service';
+import { AlertType } from '../../../enums/alert-type';
 @Component({
   selector: 'app-history-page',
   templateUrl: './history-page.component.html',
@@ -9,26 +11,32 @@ import { BooksService } from '../../../services/books.service';
 export class HistoryPageComponent implements OnInit {
 
   books = [];
+  bookTableType = BookTableType;
+  alertType = AlertType;
   tableHeaders = [
       'Book Image',
-      'Book Title',
+      'Title',
       'Author',
       'Date Borrowed',
-      'Expected Return Date'
+      'Expected Return Date',
+      'Action'
     ];
 
   constructor(
     private bookService: BooksService,
+    private alertService: AlertService,
   ) { }
 
   ngOnInit() {
     this.bookService.getBorrowedBooks()
       .subscribe(
-        response => {
-          this.books = response;
+        apiResponse => {
+          this.books = apiResponse.response.filter((book) => {
+            return book.returnStatus === false;
+          });
         },
         error => {
-          console.log(error);
+         this.alertService.showAlert(this.alertType.ERROR, error);
         }
       );
   }

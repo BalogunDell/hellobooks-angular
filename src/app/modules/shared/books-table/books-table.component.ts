@@ -17,6 +17,7 @@ export class BooksTableComponent {
 
   alertType = AlertType;
   bookTableType = BookTableType;
+  isReturnButtonEnabled = true;
 
   constructor(
     private alertService: AlertService,
@@ -33,9 +34,7 @@ export class BooksTableComponent {
        this.bookService.deleteBook(selectedBook.id)
         .subscribe(
           response => {
-            this.books = this.books.filter((book: any) => {
-                return book.id !== selectedBook.id;
-              });
+            this.books = this.updateBooks(this.books, selectedBook);
             this.alertService.showAlert(this.alertType.SUCCESS, response.message);
           },
         error => {
@@ -43,6 +42,49 @@ export class BooksTableComponent {
         }
       );
      }
+    });
+  }
+  /**
+   * This function confirms if a user wants to return a book
+   * and it acts on the response on of the user
+   * by either making an api call to return the
+   * book or cancelling the action and closing the alert
+   *
+   * @param {number} bookId
+   * @memberof BooksTableComponent
+   */
+  returnBook(bookId) {
+    this.alertService.showAlert(
+      this.alertType.CONFIRMATION,
+      'Are you sure you want to return this book?');
+      this.alertService.confirmUserAction.subscribe((event) => {
+        if (event) {
+          this.bookService.returnBook(bookId)
+            .subscribe(
+              response => {
+                this.isReturnButtonEnabled = false;
+                this.alertService.showAlert(this.alertType.SUCCESS, response.message);
+              },
+              error => {
+                this.alertService.showAlert(this.alertType.ERROR, error);
+              }
+            );
+        }
+      });
+  }
+
+  /**
+   * This function updates the UI by filtering
+   * through the books and removing the one
+   * that has been returned from the table
+   *
+   * @param {any} books
+   * @param {any} selectedBook
+   * @memberof BooksTableComponent
+   */
+  updateBooks(books, selectedBook) {
+    return books.filter((book: any) => {
+      return book.id !== selectedBook.id;
     });
   }
 }

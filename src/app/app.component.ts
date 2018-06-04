@@ -24,8 +24,4 @@ export class AppComponent {
       this.isPageWrapperNeeded = false;
     }
   }
-
-  logOut(event) {
-    console.log(event);
-  }
 }

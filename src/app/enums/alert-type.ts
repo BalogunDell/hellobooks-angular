@@ -1,6 +1,6 @@
 export enum AlertType {
-SUCCESS = 1,
-ERROR,
-WARNING,
-CONFIRMATION
+  SUCCESS = 1,
+  ERROR,
+  WARNING,
+  CONFIRMATION
 }

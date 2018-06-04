@@ -47,14 +47,14 @@ export class UserService extends BaseService {
    * @memberof UserService
    */
   getUser() {
-   return this.http.get(`${this.baseApi}/users/${this.getUserId()}`, this.setHeaders())
+   return this.http.get(`${this.baseApi}/users/${this.getUserId()}`)
     .do(response => response)
     .catch(this.handleHttpErrorResponse);
 
   }
 
   updateProfile(newUserData) {
-    return this.http.put(`${this.baseApi}/users/${this.getUserId()}`, newUserData, this.setHeaders())
+    return this.http.put(`${this.baseApi}/users/${this.getUserId()}`, newUserData)
       .do(response => response)
       .catch(this.handleHttpErrorResponse);
   }
