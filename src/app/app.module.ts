@@ -14,7 +14,6 @@ import { AuthService } from './services/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HomePageComponent } from './modules/home/home-page/home-page.component';
-import { PageNotFoundComponent } from './modules/shared/page-not-found/page-not-found.component';
 import { FirstSectionComponent } from './modules/home/first-section/first-section.component';
 import { TrendingBooksComponent } from './modules/home/trending-books/trending-books.component';
 import { BookOfTheDayComponent } from './modules/home/book-of-the-day/book-of-the-day.component';
@@ -26,7 +25,6 @@ import { HeaderInterceptor } from './interceptors/header-Interceptor';
   declarations: [
     AppComponent,
     HomePageComponent,
-    PageNotFoundComponent,
     FirstSectionComponent,
     TrendingBooksComponent,
     BookOfTheDayComponent,

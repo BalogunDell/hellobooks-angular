@@ -31,7 +31,7 @@ export class BooksService extends BaseService {
   * @memberof BooksService
   */
   getAllBooks(): Observable<any> {
-    return this.http.get(`${this.baseApi}/books`, this.setHeaders())
+    return this.http.get(`${this.baseApi}/books`)
     .do(response => response)
     .catch(this.handleHttpErrorResponse);
   }

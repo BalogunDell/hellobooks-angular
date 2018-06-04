@@ -13,6 +13,7 @@ import { BooksComponent } from './books/books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BooksTableComponent } from './books-table/books-table.component';
 import { AlertComponent } from './alert/alert.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { AlertComponent } from './alert/alert.component';
     BookDetailComponent,
     BooksTableComponent,
     AlertComponent,
+    PageNotFoundComponent
   ],
 
   exports: [
@@ -44,6 +46,7 @@ import { AlertComponent } from './alert/alert.component';
     BookDetailComponent,
     BooksTableComponent,
     AlertComponent,
+    PageNotFoundComponent,
   ]
 })
 export class SharedModule { }

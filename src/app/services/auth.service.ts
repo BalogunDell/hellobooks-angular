@@ -65,6 +65,14 @@ export class AuthService {
     return tokenNotExpired('token');
   }
 
+   /**
+   * Logs a user out by clearing the token and
+   * redirecting to home page.
+   *
+   * @returns {boolea} true or false
+   *
+   * @memberof AuthService
+   */
   logOut() {
     localStorage.removeItem('token');
     this.router.navigate(['/']);

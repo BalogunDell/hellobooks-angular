@@ -7,11 +7,11 @@ import { AlertService } from '../../../services/alert.service';
 import { AlertType } from '../../../enums/alert-type';
 
 @Component({
-  selector: 'app-user-profile-page',
-  templateUrl: './user-profile-page.component.html',
-  styleUrls: ['./user-profile-page.component.scss']
+  selector: 'app-profile-page',
+  templateUrl: './profile-page.component.html',
+  styleUrls: ['./profile-page.component.scss']
 })
-export class UserProfilePageComponent implements OnInit {
+export class ProfilePageComponent implements OnInit {
 
   editProfileForm: FormGroup;
   userInfo: object;
@@ -32,6 +32,13 @@ export class UserProfilePageComponent implements OnInit {
     this.getUserDetail();
   }
 
+  /**
+   * This function takes in userData, creates the form
+   * and popluates the form with it
+   *
+   * @param {any} userData
+   * @memberof ProfilePageComponent
+   */
   createForm(userData) {
     this.editProfileForm = this.formBuilder.group({
       firstName: [userData.firstName,
@@ -53,8 +60,13 @@ export class UserProfilePageComponent implements OnInit {
       ],
     });
   }
-
-  getUserDetail() {
+/**
+ * This function gets the details of the
+ * user.
+ *
+ * @memberof ProfilePageComponent
+ */
+getUserDetail() {
     this.userService.getUser()
       .subscribe(
         response => {
@@ -107,8 +119,5 @@ export class UserProfilePageComponent implements OnInit {
           this.alertService.showAlert(this.alertType.ERROR, error);
         }
       );
-  }
-
-  editPassword() {
   }
 }

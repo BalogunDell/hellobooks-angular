@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { environment } from '../../env';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './auth.service';
-import { AlertService } from './alert.service';
-import { AlertType } from '../enums/alert-type';
 import { _throw } from 'rxjs/observable/throw';
 
 
@@ -15,25 +13,33 @@ import { _throw } from 'rxjs/observable/throw';
 export class BaseService {
   protected baseApi = environment.baseApi;
   protected userId;
-  alertType = AlertType;
 
   constructor(
     protected http: HttpClient,
     protected authService: AuthService,
-    protected alertService: AlertService,
   ) {}
 
+  /**
+   * This function handles any error from api call
+   * and it returns the message of the error
+   *
+   * @param {HttpErrorResponse} error
+   *
+   * @returns {string} error message
+   *
+   * @memberof BaseService
+   */
   handleHttpErrorResponse(error: HttpErrorResponse) {
      return _throw(error.error.message);
   }
-  setHeaders(): object {
-    const token = this.authService.getUserToken('token');
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Authorization': token })
-    };
-    return httpOptions;
-  }
 
+  /**
+   * This function gets the user id
+   *
+   * @returns {number} userId
+   *
+   * @memberof BaseService
+   */
   getUserId(): number {
     this.userId = this.authService.decodeToken().id;
     return this.userId;

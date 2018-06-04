@@ -29,9 +29,16 @@ export class LibraryPageComponent implements OnInit {
   }
 
 
+  /**
+   * This function gets all the books
+   *
+   * @returns {void}
+   *
+   * @memberof LibraryPageComponent
+   */
   getBooks() {
     this.isLoading = true;
-    return this.booksService.getAllBooks()
+    this.booksService.getAllBooks()
       .subscribe(
         response => {
         this.isLoading = false;

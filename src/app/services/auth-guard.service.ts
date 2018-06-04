@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-
+import { UserPageComponent } from '../modules/user/user-page/user-page.component';
 import { UserService } from './user.service';
 
 @Injectable()

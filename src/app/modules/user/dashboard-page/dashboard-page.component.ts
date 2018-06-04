@@ -8,7 +8,9 @@ import { BookTableType } from '../../../enums/books-table-type';
   styleUrls: ['./dashboard-page.component.scss']
 })
 export class DashboardPageComponent implements OnInit {
+
   allLibraryBooks = [];
+  borrowedBooks = [];
   totalBooksCount = 0;
   totalBorrowedBooksCount = 0;
   totalReturnedBooksCount = 0;
@@ -35,17 +37,31 @@ export class DashboardPageComponent implements OnInit {
     this.getAllBooks();
   }
 
+  /**
+   * This method gets all the borrowed books so the admin
+   * can know exactly what record statistics he/she has
+   *
+   * @memberof DashboardPageComponent
+   */
   getAllBorrowedBooks() {
     this.bookService.getAllBorrowedBooks()
       .subscribe(
         response => {
          this.totalBorrowedBooksCount = response.books.length;
          this.getBookStatistics(response.books);
+          this.borrowedBooks = response.books;
         },
         error => {}
       );
   }
 
+  /**
+   * Thos method gets all the books in the application
+   * and displays the count and also the books
+   * in a tabular form
+   *
+   * @memberof DashboardPageComponent
+   */
   getAllBooks() {
     this.bookService.getAllBooks()
       .subscribe(
@@ -60,12 +76,19 @@ export class DashboardPageComponent implements OnInit {
       );
   }
 
+  /**
+   * This method gets the count of
+   * books not returned
+   *
+   * @param {any} books
+   * @memberof DashboardPageComponent
+   */
   getBookStatistics(books) {
      books.forEach(book => {
       if (book.returnStatus === false) {
        return this.totalBooksNotReturnedCount += 1;
       } else {
-        this.totalBooksNotReturnedCount += 1;
+        this.totalReturnedBooksCount += 1;
       }
     });
   }
