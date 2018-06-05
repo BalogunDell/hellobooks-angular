@@ -8,20 +8,18 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../services/auth.service';
-import { AlertService } from '../services/alert.service';
-import { AlertType } from '../enums/alert-type';
 
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {
 
-    alertType = AlertType;
   constructor(
       private authService: AuthService,
-      private alertService: AlertService,
   ) {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       const token = this.authService.getUserToken('token');
+      console.log(request);
     const url = request.url.substr(request.url.indexOf('v1/') + 3 );
+    console.log(url);
     const openEndpoints = ['user/signup', 'users/signin', 'trendingbooks'];
     const checkForEndpoint = openEndpoints.find((endpoint) => {
         return endpoint === url;
