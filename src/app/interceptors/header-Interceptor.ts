@@ -17,9 +17,7 @@ export class HeaderInterceptor implements HttpInterceptor {
   ) {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       const token = this.authService.getUserToken('token');
-      console.log(request);
     const url = request.url.substr(request.url.indexOf('v1/') + 3 );
-    console.log(url);
     const openEndpoints = ['user/signup', 'users/signin', 'trendingbooks'];
     const checkForEndpoint = openEndpoints.find((endpoint) => {
         return endpoint === url;
