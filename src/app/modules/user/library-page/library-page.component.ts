@@ -21,13 +21,11 @@ export class LibraryPageComponent implements OnInit {
     private modalService: ModalService,
     private router: Router,
 
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.getBooks();
   }
-
 
   /**
    * This function gets all the books
@@ -39,12 +37,13 @@ export class LibraryPageComponent implements OnInit {
   getBooks() {
     this.isLoading = true;
     this.booksService.getAllBooks()
-      .subscribe(
+      .toPromise()
+      .then(
         response => {
         this.isLoading = false;
         this.books = response.books;
-      },
-      error => {});
+      })
+      .catch(error => {});
   }
 
   /**

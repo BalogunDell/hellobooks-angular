@@ -19,9 +19,16 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {
     this.modalService.registerModal(this);
-
   }
 
+  /**
+   *This function displays the modal based on the type of
+   * parameters passed to it
+   *
+   * @param {boolean} show
+   * @param {number} type
+   * @memberof ModalComponent
+   */
   displayModal(show: boolean, type: number) {
     this.showModal = show;
     this.type = type;

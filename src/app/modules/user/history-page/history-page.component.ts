@@ -29,13 +29,14 @@ export class HistoryPageComponent implements OnInit {
 
   ngOnInit() {
     this.bookService.getBorrowedBooks()
-      .subscribe(
+      .toPromise()
+      .then(
         apiResponse => {
           this.books = apiResponse.response.filter((book) => {
             return book.returnStatus === false;
           });
-        },
-        error => {
+        })
+        .catch(error => {
          this.alertService.showAlert(this.alertType.ERROR, error);
         }
       );

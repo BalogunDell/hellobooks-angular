@@ -32,12 +32,13 @@ export class BooksTableComponent {
     this.alertService.confirmUserAction.subscribe((event) => {
      if (event) {
        this.bookService.deleteBook(selectedBook.id)
-        .subscribe(
+        .toPromise()
+        .then(
           response => {
             this.books = this.updateBooks(this.books, selectedBook);
             this.alertService.showAlert(this.alertType.SUCCESS, response.message);
-          },
-        error => {
+          })
+        .catch(error => {
           this.alertService.showAlert(this.alertType.ERROR, error);
         }
       );
@@ -60,12 +61,13 @@ export class BooksTableComponent {
       this.alertService.confirmUserAction.subscribe((event) => {
         if (event) {
           this.bookService.returnBook(bookId)
-            .subscribe(
+            .toPromise()
+            .then(
               response => {
                 this.isReturnButtonEnabled = false;
                 this.alertService.showAlert(this.alertType.SUCCESS, response.message);
-              },
-              error => {
+              })
+              .catch(error => {
                 this.alertService.showAlert(this.alertType.ERROR, error);
               }
             );

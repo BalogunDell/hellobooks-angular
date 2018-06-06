@@ -68,12 +68,13 @@ export class ProfilePageComponent implements OnInit {
  */
 getUserDetail() {
     this.userService.getUser()
-      .subscribe(
+      .toPromise()
+      .then(
         response => {
           this.userInfo = response.userData;
           this.isLoadingUserData = false;
-        },
-        error => {}
+        })
+        .catch(error => {}
       );
   }
   /**
@@ -109,13 +110,14 @@ getUserDetail() {
    */
   updateProfile() {
     this.userService.updateProfile(this.editProfileForm.value)
-      .subscribe(
+      .toPromise()
+      .then(
         response => {
          this.userInfo = response.user;
          this.showEditProfileForm = false;
          this.alertService.showAlert(this.alertType.SUCCESS, 'Profile successfully updated.');
-        },
-        error => {
+        })
+        .catch(error => {
           this.alertService.showAlert(this.alertType.ERROR, error);
         }
       );

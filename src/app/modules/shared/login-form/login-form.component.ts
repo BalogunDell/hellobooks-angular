@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalService } from '../../../services/modal.service';
 import { UserService } from '../../../services/user.service';
 import { AuthService } from '../../../services/auth.service';
+import { ComponentType } from '../../../enums/component-type.enum';
 
 @Component({
   selector: 'app-login-form',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   disableBtn;
   errorMessage: string;
+  componentType = ComponentType;
 
   constructor(
     private modalService: ModalService,
@@ -39,18 +41,25 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.disableBtn = true;
     this.userService.loginUser(this.loginForm.value)
-      .subscribe(
+      .toPromise()
+      .then(
         response => {
        this.authService.setUserToken(response.responseData.token);
        this.modalService.showModal(false, null);
        this.router.navigate(['/user/library']);
-      },
-      error => {
+      })
+      .catch(error => {
         this.errorMessage = error;
         this.disableBtn = false;
       });
   }
+
+  /**
+   *Shows the signup modal
+   *
+   * @memberof LoginComponent
+   */
   signUp() {
-    this.modalService.showModal(true, 2);
+    this.modalService.showModal(true, this.componentType.REGISTER);
   }
 }

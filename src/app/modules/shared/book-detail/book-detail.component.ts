@@ -47,12 +47,13 @@ export class BookDetailComponent implements OnInit {
   getBook(bookId) {
     this.isBookDetailLoading = true;
     this.bookService.getBook(bookId)
-      .subscribe(
+      .toPromise()
+      .then(
         response => {
           this.book = response.payload;
           this.isBookDetailLoading = false;
-        },
-        error => {
+        })
+        .catch((error) => {
           this.alertService.showAlert(this.alertType.ERROR, error.message);
         }
       );
@@ -67,13 +68,13 @@ export class BookDetailComponent implements OnInit {
    */
   borrowBook(bookId) {
     this.bookService.borrowBook(bookId)
-      .subscribe(
-        response => {
+      .toPromise()
+      .then(response => {
           this.alertService.showAlert(this.alertType.SUCCESS, response.message);
           this.navigateUserToHistoryPage = true;
           this.isBorrowButtonEnable = false;
-        },
-        error => {
+        })
+        .catch(error => {
           this.alertService.showAlert(this.alertType.ERROR, error);
           this.isBorrowButtonEnable = false;
           }

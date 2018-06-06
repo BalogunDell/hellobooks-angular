@@ -20,13 +20,11 @@ export class TrendingBooksComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.bookService.getTrendingBooks()
-      .subscribe(
-        response => {
+      .toPromise()
+      .then(response => {
         this.loading = false;
         this.trendingBooks = response.trendingBooks;
-      },
-      error => {
-      }
-    );
+      })
+      .catch(() => {});
   }
 }

@@ -50,13 +50,13 @@ createForm() {
     }
 
     this.userService.createUser(this.registerForm.value)
-    .subscribe(
-      response => {
+    .toPromise()
+    .then(response => {
         this.authService.setUserToken(response.responseData.token);
         this.modalService.showModal(false, null);
         this.router.navigate(['/user/library']);
-      },
-    error => {
+      })
+      .catch(error => {
       this.errorMessage = error;
       this.disableBtn = false;
     }

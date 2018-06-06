@@ -45,13 +45,14 @@ export class DashboardPageComponent implements OnInit {
    */
   getAllBorrowedBooks() {
     this.bookService.getAllBorrowedBooks()
-      .subscribe(
+      .toPromise()
+      .then(
         response => {
          this.totalBorrowedBooksCount = response.books.length;
          this.getBookStatistics(response.books);
           this.borrowedBooks = response.books;
-        },
-        error => {}
+        })
+        .catch(error => {}
       );
   }
 
@@ -64,15 +65,16 @@ export class DashboardPageComponent implements OnInit {
    */
   getAllBooks() {
     this.bookService.getAllBooks()
-      .subscribe(
+      .toPromise()
+      .then(
         response => {
           this.totalBooksCount = response.books.length;
           this.allLibraryBooks = response.books.map((book) => {
              book.category = book.Category.category;
              return book;
           });
-        },
-        error => {}
+        })
+        .catch(error => {}
       );
   }
 
