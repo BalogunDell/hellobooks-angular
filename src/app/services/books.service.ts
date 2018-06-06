@@ -18,7 +18,7 @@ export class BooksService extends BaseService {
    */
   getTrendingBooks(): Observable<any>  {
     return this.http.get(`${this.baseApi}/trendingbooks`)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 
@@ -32,7 +32,7 @@ export class BooksService extends BaseService {
   */
   getAllBooks(): Observable<any> {
     return this.http.get(`${this.baseApi}/books`)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 
@@ -45,7 +45,7 @@ export class BooksService extends BaseService {
   */
  getBorrowedBooks() {
   return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/`)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
 }
 
@@ -60,7 +60,7 @@ export class BooksService extends BaseService {
   */
  getBook(bookId): Observable<any> {
   return this.http.get(`${this.baseApi}/users/${this.getUserId()}/books/${bookId}`)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
 }
 
@@ -76,7 +76,7 @@ export class BooksService extends BaseService {
   borrowBook(bookId: number): Observable<any> {
     return this.http.post(`${this.baseApi}/users/${this.getUserId()}/books/`,
       {bookId})
-      .do(response => response)
+      .map(response => response)
       .catch(this.handleHttpErrorResponse);
   }
 
@@ -89,7 +89,7 @@ export class BooksService extends BaseService {
   */
  getAllBorrowedBooks(): Observable<any> {
   return this.http.get(`${this.baseApi}/books/borrowedbooks/`)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 
@@ -102,7 +102,7 @@ export class BooksService extends BaseService {
   */
  deleteBook(bookId): Observable<any> {
   return this.http.delete(`${this.baseApi}/books/${bookId}`)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 
@@ -116,7 +116,7 @@ export class BooksService extends BaseService {
  returnBook(bookId): Observable<any> {
   return this.http.put(`${this.baseApi}/users/${this.getUserId()}/books`,
     {bookId})
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 

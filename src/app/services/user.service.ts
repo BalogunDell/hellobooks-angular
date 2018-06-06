@@ -19,7 +19,7 @@ export class UserService extends BaseService {
    */
   createUser(userData) {
     return this.http.post(`${this.baseApi}/users/signup`, userData)
-      .do(response => response)
+      .map(response => response)
       .catch(this.handleHttpErrorResponse);
   }
 
@@ -34,7 +34,7 @@ export class UserService extends BaseService {
    */
   loginUser(loginDetails: object): Observable<any>  {
     return this.http.post(`${this.baseApi}/users/signin`, loginDetails)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
   }
 
@@ -49,7 +49,7 @@ export class UserService extends BaseService {
    */
   getUser() {
    return this.http.get(`${this.baseApi}/users/${this.getUserId()}`)
-    .do(response => response)
+    .map(response => response)
     .catch(this.handleHttpErrorResponse);
 
   }
@@ -65,7 +65,7 @@ export class UserService extends BaseService {
    */
   updateProfile(newUserData) {
     return this.http.put(`${this.baseApi}/users/${this.getUserId()}`, newUserData)
-      .do(response => response)
+      .map(response => response)
       .catch(this.handleHttpErrorResponse);
   }
 }
